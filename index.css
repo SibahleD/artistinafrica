@@ -1,0 +1,186 @@
+:root {
+  --primary-color: #ff6700;
+  --hover-color: rgb(0, 87, 102);
+  --secondary-color: #003566;
+  --tertiary-color: #18222c;
+  --temp: #8ecae6;
+  --background-color: #000814;
+  --background-alt-color: #ffffff;
+  --primary-font-color: #ffffff;
+  --secondary-font-color: #000814;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --border-color: #ffffff;
+  --hover-color: #caf0f8ff;
+  --button-color: #00b4d8ff;
+  --button-hover-color: #90e0efff;
+  --marian-blue: #023e8aff;
+  --honolulu-blue: #0077b6ff;
+  --blue-green: #0096c7ff;
+
+  --vivid-sky-blue: #48cae4ff;
+
+  --non-photo-blue-2: #ade8f4ff;
+
+  transition: 2s;
+}
+/* Global Fonts */
+@font-face {
+  font-family: "Creato";
+  src: url("fonts/CreatoDisplay-Black.woff") format("woff"),
+    url("fonts/CreatoDisplay-Black.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Krona One";
+  src: url("https://fonts.googleapis.com/css2?family=Krona+One&display=swap");
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --default-font: "Creato", sans-serif;
+  --heading-font: "Creato", sans-serif;
+  --paragraph-font: "Karla", sans-serif;
+  --logo-font: "Krona One", sans-serif;
+}
+
+a,
+p,
+h1,
+h2,
+h3 {
+  text-decoration: none;
+  color: var(--primary-font-color);
+  font-family: var(--default-font);
+  transition: 0.3s;
+}
+
+h1 {
+  font-family: var(--default-font);
+  font-weight: bold;
+  font-size: x-large;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  background-color: var(--secondary-font-color);
+  color: var(--primary-font-color);
+}
+.header-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+.header-logo {
+  font-family: "Krona One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+  color: var(--primary-font-color);
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+li {
+  color: var(--primary-font-color);
+  font-weight: bold;
+}
+
+.btn-stand {
+  color: var(--secondary-font-color);
+  background-color: var(--button-color);
+  font-size: large;
+  padding: 10px 30px;
+  margin: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-stand:hover {
+  background-color: var(--button-hover-color);
+}
+body {
+  background: linear-gradient(90deg, #000814 0%, #003566 100%);
+  padding: 0;
+  margin: 0;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+.hero-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  height: 60vh;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  color: var(--primary-font-color);
+  margin-bottom: 20px;
+  width: 70%;
+}
+
+.hero-content p {
+  width: 70%;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+  width: 100%;
+}
+
+.sel-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  margin: 50px;
+  background-color: var(--tertiary-color);
+}
+.sel-icon p {
+  color: var(--primary-font-color);
+}
+.sel-icon img {
+  width: 250px;
+  height: 250px;
+}
+.sel-icon:hover {
+  box-shadow: 0 0 10px var(--hover-color);
+}
+
+.other-container h1 {
+  font-size: 2rem;
+  color: var(--primary-font-color);
+  margin-top: 20px;
+  width: 70%;
+}
