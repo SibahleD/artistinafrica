@@ -1,0 +1,269 @@
+/* Global Colors */
+:root {
+  --primary-color: #ff6700;
+  --hover-color: #005766;
+  --secondary-color: #003566;
+  --tertiary-color: #18222c;
+  --background-color: #000814;
+  --background-alt-color: #ffffff;
+  --font-color: #ffffff;
+  --font-alt-color: #000814;
+  --shadow-color: #00000033;
+  --border-color: #ffffff;
+  --hover-color: #04b2d4;
+  --button-color: #04b2d4;
+  --button-hover-color: #90e0efff;
+  --alt-secondary-color: #f56200;
+  --alt-tertiary-color: #18222c;
+  --marian-blue: #023e8aff;
+  --honolulu-blue: #0077b6ff;
+  --blue-green: #0096c7ff;
+  --vivid-sky-blue: #48cae4ff;
+  --non-photo-blue-2: #ade8f4ff;
+}
+
+/* Global Fonts */
+@font-face {
+  font-family: "Creato";
+  src: url("../fonts/CreatoDisplay-Black.woff") format("woff"),
+    url("../fonts/CreatoDisplay-Black.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Krona One";
+  src: url("../fonts/KronaOne-Regular.woff") format("woff"),
+    url("../fonts/KronaOne-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-Regular.woff") format("woff"),
+    url("../fonts/Raleway-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --default-font: "Raleway", sans-serif;
+  --heading-font: "Creato", sans-serif;
+  --paragraph-font: "Raleway", sans-serif;
+  --logo-font: "Krona One", sans-serif;
+  transition: 0.3s;
+}
+
+a,
+p,
+h1,
+h2,
+h3 {
+  text-decoration: none;
+  color: var(--font-color);
+  font-family: var(--default-font);
+   font-weight: normal;
+  transition: 0.3s;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: var(--heading-font);
+  font-weight: bold;
+  font-size: x-large;
+}
+
+header {
+  padding: 0;
+  margin: 0;
+}
+.hero-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: row;
+  align-items: center;
+  color: var(--font-alt-color);
+  background-color: var(--background-alt-color);
+  border-radius: 90px 0px 90px 0px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+}
+
+.btn-stand {
+  color: var(--font-alt-color);
+  background-color: var(--button-color);
+  font-size: large;
+  padding: 10px 30px;
+  margin: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-stand:hover {
+  background-color: var(--button-hover-color);
+}
+body {
+  background: linear-gradient(90deg, #000814 0%, #003566 100%);
+  transition: 0.3s;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  flex-direction: column;
+  width: 600px;
+  padding: 50px 0px 90px 50px;
+  margin: 0px;
+
+}
+
+.hero-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: row;
+  margin-top: 50px;
+}
+
+.header-logo {
+  width: 100px;
+  height: 100px;
+}
+
+
+.hero-content h1 {
+  font-family: var(--heading-font);
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin: 0px 0px 0px 10px;
+  width: 70%;
+}
+
+.hero-content h1 span {
+  color: var(--button-color);
+}
+
+.hero-content p {
+  width: 60%;
+  margin: 10px 0px 10px 0px;
+  color: var(--font-alt-color);
+  font-size: 1.3rem;
+}
+
+.hero-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 50%;
+  height: 500px;
+  padding: 50px;
+  background-color: var(--button-hover-color);
+  border-radius: 0px 0px 90px 0px;
+}
+
+.hero-form h2 {
+  font-family: var(--heading-font);
+  font-size: 2rem;
+  color: var(--font-alt-color);
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  font-family: var(--default-font);
+  font-size: 1rem;
+  color: var(--font-alt-color);
+  margin-bottom: 0px;
+}
+
+.form-group input {
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--font-alt-color);
+  width: 110%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+}
+
+.form-group .register-link,
+.register-link a {
+  color: var(--font-alt-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.register-link a {
+  color: var(--button-color);
+}
+.password-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.password-input input {
+  width: 90%;
+}
+
+.password-input img {
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+  border: 1px solid var(--font-alt-color);
+  background-color: var(--background-alt-color);
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.btn-login {
+  color: var(--font-color);
+  background-color: var(--alt-secondary-color);
+  border: 2px solid var(--font-alt-color);
+  font-size: large;
+  padding: 10px 30px;
+  margin: 20px 0px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-login:hover {
+  background-color: var(--hover-color);
+  transition: 0.3s;
+}
+
+footer {
+   display: flex;
+  flex-direction: column;
+   position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--shadow-color);
+
+}
+footer p {
+  color: var(--font-color);
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+}

@@ -4,22 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ArtistIn Africa</title>
-    <link href="index.css" rel="stylesheet">
-    
+    <title>ArtistSync</title>
+    <link href="styles/index.css" rel="stylesheet">
+
 </head>
 
 <body>
     <header>
         <div class="header-container">
-            <p class="header-logo"> Artist In Africa</p>
+            <img src="images/artistsync-logo-col.png" alt="ArtSync Logo" class="header-logo">
             <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
+                <li><a href="index.html">
+                    <img src="images/icon-home.png" alt="Home Logo" class="header-icons">
+                </a></li>
+                <li><a href="artist-listing.html">
+                    <img src="images/icon-mic.png" alt="Mic Logo" class="header-icons">
+                </a></li>
+                <li><a href="index.html">
+                    <img src="images/icon-adjust.png" alt="Search Logo" class="header-icons">
+                </a></li>
+                <li><a href="index.html">
+                    <img src="images/icon-search.png" alt="Search Logo" class="header-icons">
+                </a></li>
             </ul>
-            <button>Search</button>
-
+            <a class="header-user">
+                <img src="images/icon-user.png" alt="ThinkGreen Afrika Logo" class="header-icons">
+            </a>
         </div>
     </header>
     <section class="hero-container">
@@ -27,34 +37,135 @@
             <h1 class="hero-title">
                 Find studios, collaborators and gigs in Rwanda.</h1>
             <p class="hero-supporting">
-                Deploy any modern frontend stack, from marketing sites to AI apps. Join millions of developers and
-                teams shipping faster on Netlify. </p>
-            <button class="btn-stand">
-                Get Started
-            </button>
+                Quickly find the right studio, artist or gig for your next project.
+                From studio owners, digital artists to sound engineers, this is where you can all <span
+                    style="font-weight: bold; color: #04b2d4">sync</span>.
+            </p>
+            <div class="search-container">
+                <input type="text" placeholder="Search studios, designers, or producers..."
+                    class="search-input" />
+                <button class="btn-stand">
+                    <a href="results">Search</a></button>
+            </div>
+            <div class="hero-buttons">
+            <a class="btn-stand-alt" href="sign-in.html">
+                Join as Artist
+            </a>
+            <a class="btn-stand" href="sign-in.html">
+                Join as Studio
+            </a>
+            </div>
         </div>
-        <section class="options-container">
-            <div class="sel-icon">
-                <img src="images/logo-test.png" alt="ThinkGreen Afrika Logo" class="w-32 h-32">
-                <p>Studio Owner</p>
-            </div>
-            <div class="sel-icon">
-                <img src="images/logo-test.png" alt="ThinkGreen Afrika Logo" class="w-32 h-32">
-                <p>Artist</p>
-            </div>
-        </section>
-        <section class="other-container">
-            <h1>Title</h1>
-            <div>
+        <section class="studios-container">
+            <h2> Find trending studio listings</h2>
+            <div class="studios-content">
                 <div class="sel-icon">
-                    <img src="images/logo-test.png" alt="ThinkGreen Afrika Logo" class="w-32 h-32">
-                    <p>Artist</p>
+                    <img src="images/studio-pic-1.jpg" alt="studio-pic">
+                    <div class="stu-listing-title">
+                        <h3>AirHead Recording Center</h3>
+                        <img class="verified-icon" src="images/icon-verified.png" alt="verified">
+                    </div>
+                    <p>Kimironko • ⭐4.8</p>
+                    <a class="btn-view" href="studio-view.html">
+                        More
+                    </a>
+                </div>
+                <div class="sel-icon">
+                    <img src="images/studio-pic-2.jpg" alt="studio-pic">
+                    <div class="stu-listing-title">
+                        <h3>Jumbo Private Studio</h3>
+                    </div>
+                    <p>Kwanayinzira • ⭐4.8</p>
+                    <a class="btn-view" href="studio-view.html">
+                        More
+                    </a>
+                </div>
+            </div>
+            <h3 class="studios-link">or...</h3>
+        </section>
+
+        <section class="collabs-container">
+            <h2> Find potential collaborators</h2>
+            <div class="collabs-content">
+                <div class="collab-listing">
+                    <div class="collab-pic">
+                        <img src="images/collab-pic-1.jpg" alt="collab-pic">
+                    </div>
+                    <div class="collab-listing-title">
+                        <h3>John Doe</h3>
+                        <img class="verified-icon" src="images/icon-verified.png" alt="verified">
+                    </div>
+                    <p>Afrobeats Producer • Kigali</p>
+                    <a class="btn-view" href="artist-listing.html">
+                        View Profile
+                    </a>
+                </div>
+                <div class="collab-listing">
+                    <div class="collab-pic">
+                        <img src="images/collab-pic-2.jpg" alt="collab-pic" >
+                    </div>
+                    <div class="stu-listing-title">
+                        <h3>Max Martin</h3>
+                    </div>
+                    <p>Sound Engineer • Kigali</p>
+                    <a class="btn-view" href="artist-listing.html">
+                        View Profile
+                    </a>
+                </div>
+                <div class="collab-listing">
+                    <div class="collab-pic">
+                        <img src="images/collab-pic-3.jpg" alt="collab-pic" >
+                    </div>
+                    <div class="stu-listing-title">
+                        <h3>Metro Boomin</h3>
+                    </div>
+                    <p>Trap Producer • Atlanta</p>
+                    <a class="btn-view" href="artist-listing.html">
+                        View Profile
+                    </a>
                 </div>
             </div>
         </section>
-        <footer>
-            <div></div>
-        </footer>
+    <footer>
+        <section class="footer-container">
+            <div class="footer-info-container">
+                <img src="images/artistsync-logo-col.png" alt="ArtistSync Logo" class="footer-logo">
+                <div>
+                    <h1>ArtistSync</h1>
+                    <h3>Connecting artists with the best studios and producers in Kigali.</h3>
+                </div>
+            </div>
+            <div class="footer-explore-links">
+                <h2>Explore</h2>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="artist-listing.html">Artists</a></li>
+                    <li><a href="studio-listing.html">Studios</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-social-links">
+                <h2>Follow Us</h2>
+                <ul class="social-links">
+                    <li><a href="https://www.facebook.com/ArtistSync" target="_blank">
+                            <img src="images/icon-facebook.png" alt="Facebook">
+                            <p>ArtistSync Africa</p>
+                        </a></li>
+                    <li><a href="https://www.twitter.com/ArtistSync" target="_blank">
+                            <img src="images/icon-twitter.png" alt="Twitter">
+                            <p>@artistsync_af</p>
+                        </a></li>
+                    <li><a href="https://www.instagram.com/ArtistSync" target="_blank">
+                            <img src="images/icon-instagram.png" alt="Instagram">
+                            <p>@artistsync_af</p>
+                        </a></li>
+                </ul>
+            </div>
+        </section>
+        <div>
+            <p>&copy; Copywright © ArtistSync | Powered by DOGE Coin</p>
+        </div>
+    </footer>
 </body>
 
 </html>
