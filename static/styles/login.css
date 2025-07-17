@@ -63,7 +63,7 @@ h3 {
   text-decoration: none;
   color: var(--font-color);
   font-family: var(--default-font);
-   font-weight: normal;
+  font-weight: normal;
   transition: 0.3s;
   margin: 0;
   padding: 0;
@@ -124,7 +124,6 @@ body {
   width: 600px;
   padding: 50px 0px 90px 50px;
   margin: 0px;
-
 }
 
 .hero-logo {
@@ -140,7 +139,6 @@ body {
   width: 100px;
   height: 100px;
 }
-
 
 .hero-content h1 {
   font-family: var(--heading-font);
@@ -165,10 +163,11 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch;
   width: 50%;
   height: 500px;
   padding: 50px;
+  padding-right: 70px;
   background-color: var(--button-hover-color);
   border-radius: 0px 0px 90px 0px;
 }
@@ -186,6 +185,8 @@ body {
   text-align: left;
 }
 
+
+
 .form-group label {
   font-family: var(--default-font);
   font-size: 1rem;
@@ -194,14 +195,14 @@ body {
 }
 
 .form-group input {
-  border-radius: 5px;
-  font-size: 1rem;
-  color: var(--font-alt-color);
-  width: 110%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
+border-radius: 5px;
+    font-size: 1rem;
+    color: var(--font-alt-color);
+    width: 91%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid var(--background-alt-color);
 }
 
 .form-group .register-link,
@@ -225,15 +226,28 @@ body {
   width: 90%;
 }
 
+.btn-pass-show {
+    padding: 10px;
+    border: 1px solid var(--font-alt-color);
+    background-color: var(--background-alt-color);
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
 .password-input img {
   width: 20px;
   height: 20px;
-  padding: 10px;
-  border: 1px solid var(--font-alt-color);
-  background-color: var(--background-alt-color);
-  border-radius: 5px;
-  margin-left: 10px;
-  cursor: pointer;
+  padding: 0px;
+}
+
+.btn-pass-show:hover {
+  background-color: var(--hover-color);
+  transition: 0.3s;
+}
+
+#password {
+  transition: background-color 0.3s ease;
 }
 .btn-login {
   color: var(--font-color);
@@ -252,14 +266,13 @@ body {
 }
 
 footer {
-   display: flex;
+  display: flex;
   flex-direction: column;
-   position: fixed;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: var(--shadow-color);
-
 }
 footer p {
   color: var(--font-color);

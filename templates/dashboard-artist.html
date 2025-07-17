@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ArtistSync</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/as-favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/as-favicon-16x16.png">
+    <link href="../static/styles/artist-profile.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <img src="../static/images/artistsync-logo-col.png" alt="ArtSync Logo" class="header-logo">
+            <ul>
+                <li><a href="index.html">
+                        <img src="../static/images/icon-home.png" alt="Home Logo" class="header-icons">
+                    </a></li>
+                <li><a href="index.html">
+                        <img src="../static/images/icon-mic.png" alt="Mic Logo" class="header-icons">
+                    </a></li>
+                <li><a href="index.html">
+                        <img src="../static/images/icon-adjust.png" alt="Search Logo" class="header-icons">
+                    </a></li>
+                <li><a href="index.html">
+                        <img src="../static/images/icon-search.png" alt="Search Logo" class="header-icons">
+                    </a></li>
+            </ul>
+            <a class="header-user" href="/dashboard-artist">
+                <img src="../static/images/icon-user.png" alt="User Logo" class="header-icons">
+            </a>
+        </div>
+    </header>
+
+    <section class="dashboard-hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-content-text">
+                    <img class="hero-avatar-image" src="../static/images/artist-pic-1.jpg" alt="Artist Image">
+                    <div class="hero--container">
+                        <div class="hero-title-container">
+                            <h1 class="hero-title">John Doe</h1>
+                            <img class="verified-icon" src="../static/images/icon-verified.png" alt="verified">
+                        </div>
+                        <h2 class="hero-subtitle">
+                            <span><a>Afrobeats Producer</a></span>
+                        </h2>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="hero-supporting-container">
+                <h3>About Me</h3>
+                <textarea class="user-bio">A passionate musician focused on creating inspiring rhythms.</textarea>
+                <h3>Skills</h3>
+                <input type="text" value="Songwriting, Vocal Mixing">
+                <h3>Portfolio Uploads</h3>
+                <input type="file" accept=".mp3,.jpg,.png,.wav" multiple>
+                <h3>Social Links</h3>
+                <input type="text" placeholder="Instagram @johnmusic" value="">
+            </div>
+        </div>
+    </section>
+
+    <section class="dashboard-bookings">
+        <h2>Bookings</h2>
+        <div class="booking-calendar">
+            <p><strong>Upcoming:</strong> Studio session at Kigali Sound - July 21, 2PM</p>
+            <p><strong>Past:</strong> Workshop - June 15</p>
+        </div>
+    </section>
+
+    <section class="dashboard-messages">
+        <h2>Messages</h2>
+        <div class="inbox">
+            <div class="message-thread">
+                <h4>Thread with Aimee</h4>
+                <p><strong>Aimee:</strong> Can we finalize the hook?</p>
+                <p><strong>You:</strong> Sure! Uploading now.</p>
+                <input type="file" accept=".mp3,.jpg">
+                <input type="text" placeholder="Type a message...">
+            </div>
+        </div>
+        <button class="btn-stand">Start New Collaboration</button>
+    </section>
+
+    <footer>
+        <section class="footer-container">
+            <div class="footer-info-container">
+                <div class="footer-info-content">
+                    <img src="../static/images/artistsync-logo-col.png" alt="ArtistSync Logo" class="footer-logo">
+                    <div>
+                        <h1>ArtistSync</h1>
+                        <h3>Connecting artists with the best studios and producers in Kigali.</h3>
+                    </div>
+                </div>
+                <ul class="social-links">
+                    <li><a href="https://www.facebook.com/ArtistSync">
+                            <img src="../static/images/icon-facebook.png" alt="Facebook">
+                        </a></li>
+                    <li><a href="https://www.twitter.com/ArtistSync">
+                            <img src="../static/images/icon-twitter.png" alt="Twitter">
+                        </a></li>
+                    <li><a href="https://www.instagram.com/ArtistSync">
+                            <img src="../static/images/icon-instagram.png" alt="Instagram">
+                        </a></li>
+                </ul>
+            </div>
+            <ul class="footer-content">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="artist-listing.html">Artists</a></li>
+                <li><a href="studio-listing.html">Studios</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+
+        </section>
+        <div class="footer-bottom">
+            <p>&copy; Copywright © ArtistSync | Powered by DOGE Coin</p>
+        </div>
+    </footer>
+</body>
+
+</html>

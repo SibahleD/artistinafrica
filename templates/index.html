@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage - ArtistSync</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/as-favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/as-favicon-16x16.png">
+<link href="../static/styles/index.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <img src="../static/images/artistsync-logo-col.png" alt="ArtSync Logo" class="header-logo">
+            <ul>
+                <li><a href="/">
+                    <img src="../static/images/icon-home.png" alt="Home Logo" class="header-icons">
+                </a></li>
+                <li><a href="/artist-list">
+                    <img src="../static/images/icon-mic.png" alt="Mic Logo" class="header-icons">
+                </a></li>
+                <li><a href="/">
+                    <img src="../static/images/icon-adjust.png" alt="Search Logo" class="header-icons">
+                </a></li>
+                <li><a href="/">
+                    <img src="../static/images/icon-search.png" alt="Search Logo" class="header-icons">
+                </a></li>
+            </ul>
+            <a class="header-user" href="/dashboard-artist">
+                <img src="../static/images/icon-user.png" alt="User Logo" class="header-icons">
+            </a>
+        </div>
+    </header>
+    <section class="hero-container">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Find studios, collaborators and gigs in Rwanda.</h1>
+            <p class="hero-supporting">
+                Quickly find the right studio, artist or gig for your next project.
+                From studio owners, digital artists to sound engineers, this is where you can all <span
+                    style="font-weight: bold; color: #04b2d4">sync</span>.
+            </p>
+            <div class="search-container">
+                <input type="text" placeholder="Search studios, designers, or producers..."
+                    class="search-input" />
+                <button class="btn-stand">
+                    <a href="results">Search</a></button>
+            </div>
+            <div class="hero-buttons">
+            <a class="btn-stand-alt" href="/sign-in">
+                Join as Artist
+            </a>
+            <a class="btn-stand" href="/sign-in">
+                Join as Studio
+            </a>
+            </div>
+        </div>
+        <section class="studios-container">
+            <h2> Find trending studio listings</h2>
+            <div class="studios-content" onWheel= "this.scrollLeft+=event.deltaY>0?100:-100">
+                <div class="sel-icon">
+                    <img src="../static/images/studio-pic-1.jpg" alt="studio-pic">
+                    <div class="stu-listing-title">
+                        <h3>AirHead Recording Center</h3>
+                        <img class="verified-icon" src="../static/images/icon-verified.png" alt="verified">
+                    </div>
+                    <p>Kimironko • ⭐4.8</p>
+                    <a class="btn-view" href="/studio-profile">
+                        More
+                    </a>
+                </div>
+                <div class="sel-icon">
+                    <img src="../static/images/studio-pic-2.jpg" alt="studio-pic">
+                    <div class="stu-listing-title">
+                        <h3>Jumbo Private Studio</h3>
+                    </div>
+                    <p>Kwanayinzira • ⭐4.8</p>
+                    <a class="btn-view" href="/studio-profile">
+                        More
+                    </a>
+                </div>
+                <div class="sel-icon">
+                    <img src="../static/images/studio-pic-1.jpg" alt="studio-pic">
+                    <div class="stu-listing-title">
+                        <h3>AirHead Recording Center</h3>
+                        <img class="verified-icon" src="../static/images/icon-verified.png" alt="verified">
+                    </div>
+                    <p>Kimironko • ⭐4.8</p>
+                    <a class="btn-view" href="/studio-profile">
+                        More
+                    </a>
+                </div>
+                <div class="sel-icon">
+                    <img src="../static/images/studio-pic-1.jpg" alt="studio-pic">
+                    <div class="stu-listing-title">
+                        <h3>AirHead Recording Center</h3>
+                        <img class="verified-icon" src="../static/images/icon-verified.png" alt="verified">
+                    </div>
+                    <p>Kimironko • ⭐4.8</p>
+                    <a class="btn-view" href="/studio-profile">
+                        More
+                    </a>
+                </div>
+            </div>
+            <h3 class="studios-link">or...</h3>
+        </section>
+
+        <section class="collabs-container">
+            <h2> Find potential collaborators</h2>
+            <div class="collabs-content">
+                <div class="collab-listing">
+                    <div class="collab-pic">
+                        <img src="../static/images/collab-pic-1.jpg" alt="collab-pic">
+                    </div>
+                    <div class="collab-listing-title">
+                        <h3>John Doe</h3>
+                        <img class="verified-icon" src="../static/images/icon-verified.png" alt="verified">
+                    </div>
+                    <p>Afrobeats Producer • Kigali</p>
+                    <a class="btn-view" href="/artist-profile">
+                        View Profile
+                    </a>
+                </div>
+                <div class="collab-listing">
+                    <div class="collab-pic">
+                        <img src="../static/images/collab-pic-2.jpg" alt="collab-pic" >
+                    </div>
+                    <div class="collab-listing-title">
+                        <h3>Max Martin</h3>
+                    </div>
+                    <p>Sound Engineer • Kigali</p>
+                    <a class="btn-view" href="/artist-profile">
+                        View Profile
+                    </a>
+                </div>
+                <div class="collab-listing">
+                    <div class="collab-pic">
+                        <img src="../static/images/collab-pic-3.jpg" alt="collab-pic" >
+                    </div>
+                    <div class="collab-listing-title">
+                        <h3>Metro Boomin</h3>
+                    </div>
+                    <p>Trap Producer • Atlanta</p>
+                    <a class="btn-view" href="/artist-profile">
+                        View Profile
+                    </a>
+                </div>
+                <div class="collab-listing">
+                    <div class="collab-pic">
+                        <img src="../static/images/collab-pic-3.jpg" alt="collab-pic" >
+                    </div>
+                    <div class="collab-listing-title">
+                        <h3>Metro Boomin</h3>
+                    </div>
+                    <p>Trap Producer • Atlanta</p>
+                    <a class="btn-view" href="/artist-profile">
+                        View Profile
+                    </a>
+                </div>
+                <div class="collab-listing">
+                    <div class="collab-pic">
+                        <img src="../static/images/collab-pic-3.jpg" alt="collab-pic" >
+                    </div>
+                    <div class="collab-listing-title">
+                        <h3>Metro Boomin</h3>
+                    </div>
+                    <p>Trap Producer • Atlanta</p>
+                    <a class="btn-view" href="/artist-profile">
+                        View Profile
+                    </a>
+                </div>
+            </div>
+        </section>
+    <footer>
+        <section class="footer-container">
+            <div class="footer-info-container">
+                <div class="footer-info-content">
+                    <img src="../static/images/artistsync-logo-col.png" alt="ArtistSync Logo" class="footer-logo">
+                    <div>
+                        <h1>ArtistSync</h1>
+                        <h3>Connecting artists with the best studios and producers in Kigali.</h3>
+                    </div>
+                </div>
+                <ul class="social-links">
+                    <li><a href="https://www.facebook.com/ArtistSync">
+                            <img src="../static/images/icon-facebook.png" alt="Facebook">
+                        </a></li>
+                    <li><a href="https://www.twitter.com/ArtistSync">
+                            <img src="../static/images/icon-twitter.png" alt="Twitter">
+                        </a></li>
+                    <li><a href="https://www.instagram.com/ArtistSync">
+                            <img src="../static/images/icon-instagram.png" alt="Instagram">
+                        </a></li>
+                </ul>
+            </div>
+            <ul class="footer-content">
+                <li><a href="/">Home</a></li>
+                <li><a href="/artist-list">Artists</a></li>
+                <li><a href="studio-listing.html">Studios</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+
+        </section>
+        <div class="footer-bottom">
+            <p>&copy; Copywright © ArtistSync | Powered by DOGE Coin</p>
+        </div>
+    </footer>
+</body>
+<script src="../static/scripts/index.js"></script>
+</html>

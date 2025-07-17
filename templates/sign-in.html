@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ArtistSync</title>
-    <link href="styles/login.css" rel="stylesheet">
+    <title>Sign Up - ArtistSync</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/as-favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/as-favicon-16x16.png">
+    <link href="../static/styles/login.css" rel="stylesheet">
 
 </head>
 
@@ -15,7 +17,7 @@
     <section class="hero-container">
         <div class="hero-content">
             <div class="hero-logo">
-                <img src="images/artistsync-logo-col.png" alt="artistsync-logo" class="header-logo">
+                <img src="../static/images/artistsync-logo-col.png" alt="artistsync-logo" class="header-logo">
                 <h1 class="hero-logo-title">
                     Artist<span>Sync</span>
                 </h1>
@@ -34,15 +36,17 @@
                 <label for="password">Password</label>
                 <div class="password-input">
                     <input type="password" id="password" name="password" required>
-                    <img src="images/icon-lock.png" alt="lock-icon" class="lock-icon">
+                    <button type="button" class="btn-pass-show">
+                        <img src="../static/images/icon-lock.png" alt="lock-icon" id="password-show">
+                    </button>
                 </div>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn-login" >
-                    <a href="index.html">Login</a></button>
+                <button type="submit" class="btn-login">
+                    <a href="/">Login</a></button>
             </div>
             <div class="form-group">
-                <p class="register-link">Don't have an account? <a href="sign-up.html">Register here</a></p>
+                <p class="register-link">Don't have an account? <a href="/sign-up">Register here</a></p>
             </div>
 
     </section>
