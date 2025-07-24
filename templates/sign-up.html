@@ -7,7 +7,7 @@
     <title>Sign Up - ArtistSync</title>
     <link rel="icon" type="image/png" sizes="32x32" href="../static/images/as-favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../static/images/as-favicon-16x16.png">
-    <link href="../static/styles/login.css" rel="stylesheet">
+    <link href="../static/styles/sign-up.css" rel="stylesheet">
 
 </head>
 
@@ -27,42 +27,41 @@
             </p>
         </div>
         <div class="hero-form">
-            <h2>Register</h2>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <div class="username-input">
-                    <input type="username" id="username" name="username" required>
+            <h2>Select a user type to register</h2>
+            <div class="selection-container">
+                <div class="user-type-selection">
+                    <div class="user-type-content">
+                        <h3 class="btn-user-type" id="artist-btn">Artist</h3>
+                        <div class="btn-type-select">
+                            <p>Find collaborations easily, book studio sessions easily within ArtistSync</p>
+                            <a href="/sign-up-artist"><img src="../static/images/icon-next.png" class="btn-next"></a>
+                        </div>
+                    </div>
+                    <img src="../static/images/icon-mic.png" class="user-type-img">
+                </div>
+                <div class="user-type-selection">
+                    <div class="user-type-content">
+                        <h3 class="btn-user-type" id="artist-btn">Studio Owner</h3>
+                        <div class="btn-type-select">
+                            <p>Get artists to book sessions with you easily</p>
+                            <a href="/sign-up-artist"><img src="../static/images/icon-next.png" class="btn-next"></a>
+                        </div>
+                    </div>
+                    <img src="../static/images/icon-mixer.png" class="user-type-img">
+                </div>
+                <div class="user-type-selection">
+                    <div class="user-type-content">
+                        <h3 class="btn-user-type" id="artist-btn">Service Provider</h3>
+                        <div class="btn-type-select">
+                            <p>Get artists to book sessions with you easily</p>
+                            <a href="/sign-up-artist"><img src="../static/images/icon-next.png" class="btn-next"></a>
+                        </div>
+                    </div>
+                    <img src="../static/images/icon-painting.png" class="user-type-img">
                 </div>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <div class="password-input">
-                    <input type="password" id="password" name="password" required>
-                    <button class="btn-pass-show">
-                        <img src="../static/images/icon-lock.png" alt="lock-icon" id="password-show">
-                    </button>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="password">Password again</label>
-                <div class="password-input">
-                    <input type="password" id="password-again" name="password" required>
-                    <button class="btn-pass-show">
-                        <img src="../static/images/icon-lock.png" alt="lock-icon" id="password-show">
-                    </button>
-                </div>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn-login">
-                    <a href="index.html">Login</a>
-                </button>
-            </div>
-            <div class="form-group">
-                <p class="register-link">Have an account? <a href="/sign-in">Login here</a></p>
+                <p class="register-link">Have an account already? <a href="/sign-in">Login here</a></p>
             </div>
 
     </section>

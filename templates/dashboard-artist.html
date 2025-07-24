@@ -7,7 +7,7 @@
     <title>Dashboard - ArtistSync</title>
     <link rel="icon" type="image/png" sizes="32x32" href="../static/images/as-favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../static/images/as-favicon-16x16.png">
-    <link href="../static/styles/artist-profile.css" rel="stylesheet">
+    <link href="../static/styles/dashboard-artist.css" rel="stylesheet">
 </head>
 
 <body>
@@ -15,13 +15,13 @@
         <div class="header-container">
             <img src="../static/images/artistsync-logo-col.png" alt="ArtSync Logo" class="header-logo">
             <ul>
-                <li><a href="index.html">
+                <li><a href="/">
                         <img src="../static/images/icon-home.png" alt="Home Logo" class="header-icons">
                     </a></li>
-                <li><a href="index.html">
+                <li><a href="/artists">
                         <img src="../static/images/icon-mic.png" alt="Mic Logo" class="header-icons">
                     </a></li>
-                <li><a href="index.html">
+                <li><a href="/studio">
                         <img src="../static/images/icon-adjust.png" alt="Search Logo" class="header-icons">
                     </a></li>
                 <li><a href="index.html">
@@ -34,42 +34,172 @@
         </div>
     </header>
 
+    <div class="profile-modal">
+        <ul>
+            <li class="btn-dashboard" icon="btn-dashboard"><a>
+                    <img src="../static/images/icon-profile.png" alt="Profile Logo">
+                </a>Profile</li>
+            <li class="btn-verified" id="btn-verified"><a>
+                    <img src="../static/images/icon-settings.png" alt="verified Logo">
+                </a>User Settings</li>
+            <li class="btn-bookings" id="btn-bookings"><a>
+                    <img src="../static/images/icon-booking.png" alt="booking Logo">
+                </a>Bookings</li>
+            <li class="btn-chat" id="btn-chat"><a>
+                    <img src="../static/images/icon-chat.png" alt="chat Logo">
+                </a>SynChat</li>
+            <li class="btn-delete" id="btn-chat"><a>
+                    <img src="../static/images/icon-delete.png" alt="delete Logo">
+                </a>Delete Account</li>
+            <li class="btn-signout" id="btn-signout"><a>
+                    <img src="../static/images/icon-logout.png" alt="logout Logo">
+                </a>Log Out</li>
+        </ul>
+    </div>
+
     <section class="dashboard-hero">
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-content-text">
-                    <img class="hero-avatar-image" src="../static/images/artist-pic-1.jpg" alt="Artist Image">
+                    <img class="hero-avatar-image" src="../static/images/avatar-placeholder.png" alt="Artist Image">
                     <div class="hero--container">
                         <div class="hero-title-container">
-                            <h1 class="hero-title">John Doe</h1>
+                            <h1 class="hero-title" id="user-username">Username</h1>
                             <img class="verified-icon" src="../static/images/icon-verified.png" alt="verified">
                         </div>
-                        <h2 class="hero-subtitle">
-                            <span><a>Afrobeats Producer</a></span>
+                        <h2 class="hero-subtitle" id="user-title">
+                            User TItle
                         </h2>
+                        <div class="hero-content-button">
+                            <button class="btn-stand" id="btn-edit-profile">Edit Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-info-container">
+                <div class="hero-location-container">
+                    <img class="location-icon" src="../static/images/icon-location.png" alt="Location Icon">
+                    <h2 class="hero-location" id="user-location">City, Country</h2>
+                </div>
+                <div class="hero-social-container">
+                    <div class="hero-social-links">
+                        <a href="https://www.facebook.com/John_Doe">
+                            <img src="../static/images/icon-facebook.png" alt="Facebook Icon" class="hero-social-icon"
+                                target="_blank">
+                            Facebook
+                        </a>
+                        <a href="https://www.twitter.com/John_Doe">
+                            <img src="../static/images/icon-twitter.png" alt="Twitter Icon" class="hero-social-icon"
+                                target="_blank">
+                            Twitter
+                        </a>
+                        <a href="https://www.instagram.com/John_Doe">
+                            <img src="../static/images/icon-instagram.png" alt="Instagram Icon" class="hero-social-icon"
+                                target="_blank">
+                            Instagram
+                        </a>
                     </div>
                 </div>
 
-
             </div>
             <div class="hero-supporting-container">
-                <h3>About Me</h3>
-                <textarea class="user-bio">A passionate musician focused on creating inspiring rhythms.</textarea>
-                <h3>Skills</h3>
-                <input type="text" value="Songwriting, Vocal Mixing">
-                <h3>Portfolio Uploads</h3>
-                <input type="file" accept=".mp3,.jpg,.png,.wav" multiple>
-                <h3>Social Links</h3>
-                <input type="text" placeholder="Instagram @johnmusic" value="">
+                <div class="hero-about">
+                    <h3>About Me</h3>
+                    <p class="user-bio">A passionate musician focused on creating inspiring rhythms.</p>
+                </div>
+                <div class="info-container">
+                    <div class="info-content">
+                        <h3>Skills</h3>
+                        <ul class="skills-list" id="skills-list">
+                            <li>Songwriting</li>
+                            <li>Vocal Mixing</li>
+                        </ul>
+                    </div>
+                    <div class="info-content">
+                        <h3>Pricing</h3>
+                        <ul class="pricing-list" id="pricing-list">
+                            <li>Beat-lease: 500 000RWF</li>
+                        </ul>
+
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
+    <div class="portfolio-container">
+        <h3>Beat Portfolio</h3>
+        <div class="portfolio-content">
+            <div class="prod-beats-content">
+                <h3>Kigali Nights</h3>
+                <div class="btn-controls">
+                    <a><img src="../static/images/icon-play.png"></a>
+                    <a><img src="../static/images/icon-pause.png"></a>
+                    <a><img src="../static/images/icon-volume.png"></a>
+                </div>
+            </div>
+            <input type="file" accept=".mp3,.jpg,.png,.wav" multiple>
+        </div>
 
+        <div class="beat-add">
+            <img src="../static/images/icon-add.png">
+            <h3>Add Beats...</h3>
+        </div>
+
+        <div id="beat-add-modal" class="modal hidden">
+            <div class="beat-modal-overlay"></div>
+            <div class="beat-modal-content">
+                <h3>Upload Your Beat</h3>
+                <div class="beat-upload-container" id="drop-area">
+                    <input type="file" id="beat-file-input" accept=".mp3,.wav,.ogg" hidden />
+                    <div class="beat-upload-content" id="beat-upload-trigger">
+                        <img src="../static/images/icon-upload.png">
+                        <p>Drag and drop your audio here<br>or <span class="click-text">click to upload</span></p>
+                    </div>
+                </div>
+                <div id="file-preview-container" class="prod-beats-content">
+                    <h3 id="file-name"></h3>
+                    <div id="file-preview"></div>
+                    <div class="btn-controls">
+                        <a><img src="../static/images/icon-play.png" id="preview-play"></a>
+                        <a><img src="../static/images/icon-pause.png" id="preview-pause"></a>
+                        <a><img src="../static/images/icon-volume.png" id="preview-volume"></a>
+                    </div>
+                </div>
+                <div class="modal-buttons">
+                    <button class="modal-close-btn">Cancel</button>
+                    <button class="modal-submit-btn">Upload</button>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
     <section class="dashboard-bookings">
-        <h2>Bookings</h2>
+        <h2 class="dashboard-heading">Bookings</h2>
         <div class="booking-calendar">
-            <p><strong>Upcoming:</strong> Studio session at Kigali Sound - July 21, 2PM</p>
-            <p><strong>Past:</strong> Workshop - June 15</p>
+            <div class="booking-upcoming">
+                <h2 class="booking-upcoming-title"><strong>Upcoming:</strong> Studio session at Kigali Sound -
+                    July 21,
+                    2PM</h2>
+                <div class="booking-venue">
+                    <img src="../static/images/studio-pic-1.jpg" alt="studio-pic">
+                    <div class="booking-venue-content">
+                        <div class="stu-listing-title">
+                            <h3>AirHead Recording Center</h3>
+                            <img class="verified-icon" src="../static/images/icon-verified.png" alt="verified">
+                        </div>
+                        <p>Kimironko • ⭐4.8</p>
+                        <a class="btn-view" href="/studio-profile">
+                            More
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <p class="booking-past"><strong>Past:</strong> Workshop - June 15</p>
         </div>
     </section>
 
@@ -86,6 +216,30 @@
         </div>
         <button class="btn-stand">Start New Collaboration</button>
     </section>
+
+    <section class="edit-profile-modal">
+        <div class="edit-profile-overlay"></div>
+        <h3>Edit profile Details</h3>
+        <div>
+            <img src="../static/images/avatar-placeholder.png" class="profile-pic">
+            <p>Change Profile Picture</p>
+        </div>
+        <form>
+            <div>
+                <label for="username" required>Username</label>
+                <input type="username" name="username" required>
+            </div>
+            <div>
+                <label for="title" required>Title</label>
+                <input type="title" name="title" required>
+            </div>
+            <div>
+                <label>User Bio</label>
+                <textarea></textarea>
+            </div>
+        </form>
+    </section>
+
 
     <footer>
         <section class="footer-container">
@@ -122,5 +276,8 @@
         </div>
     </footer>
 </body>
+<script src="../static/scripts/uni-header.js"></script>
+<script src="../static/scripts/dashboard-artist.js"></script>
+
 
 </html>

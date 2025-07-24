@@ -3,9 +3,12 @@
 1. Create Environment
 python -m venv venv
 
-Activate environment
+2. Activate environment
 source venv/Scripts/activate
 
-2. Install dependancies
+3. Install dependancies
 pip install -r requirements.txt
+
+4. Run the server
+python main.py
 

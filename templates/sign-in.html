@@ -28,23 +28,24 @@
         </div>
         <div class="hero-form">
             <h2>Login</h2>
-            <div class="form-group">
-                <label for="email">Email/ Username</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <div class="password-input">
-                    <input type="password" id="password" name="password" required>
-                    <button type="button" class="btn-pass-show">
-                        <img src="../static/images/icon-lock.png" alt="lock-icon" id="password-show">
-                    </button>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn-login">
-                    <a href="/">Login</a></button>
-            </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-input">
+                        <input type="password" id="password" name="password" required>
+                        <button type="button" class="btn-pass-show">
+                            <img src="../static/images/icon-lock.png" alt="lock-icon" id="password-show">
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn-login">Login</button>
+                </div>
+            </form>
             <div class="form-group">
                 <p class="register-link">Don't have an account? <a href="/sign-up">Register here</a></p>
             </div>
@@ -57,5 +58,6 @@
         </div>
     </footer>
 </body>
+<script src="../static/scripts/sign-in.js"></script>
 
 </html>

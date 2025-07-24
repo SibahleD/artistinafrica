@@ -103,6 +103,58 @@ header {
   height: 30px;
 }
 
+.profile-modal {
+  font-family: var(--default-font);
+  font-weight: lighter;
+  margin: auto;
+  flex-direction: column;
+  background-color: var(--background-color);
+  align-items: stretch;
+  padding: 10px;
+  width: fit-content;
+  display: none;
+  position: absolute;
+  top: 90px;
+  right: 15px;
+  border-radius: 12px;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.profile-modal.show {
+  display: block;
+}
+
+.profile-modal ul {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 10px 0px;
+}
+
+.profile-modal li {
+  text-align: left;
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 10px 20px;
+  border-radius: 10px 0px;
+}
+
+.profile-modal li:hover {
+  background-color: var(--button-color);
+  cursor: pointer;
+}
+
+.profile-modal ul img {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
 li {
   display: flex;
   justify-content: center;

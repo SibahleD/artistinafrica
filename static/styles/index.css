@@ -110,6 +110,59 @@ header {
   transform: scale(0.95);
 }
 
+.profile-modal {
+  font-family: var(--default-font);
+  font-weight: lighter;
+  margin: auto;
+  flex-direction: column;
+  background-color: var(--background-color);
+  align-items: stretch;
+  padding: 10px;
+  width: fit-content;
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  border-radius: 12px;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.profile-modal.show {
+  display: block;
+}
+
+.profile-modal ul {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 10px 0px;
+}
+
+.profile-modal li {
+  text-align: left;
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 10px 20px;
+  border-radius: 10px 0px;
+}
+
+.profile-modal li:hover {
+  background-color: var(--button-color);
+  cursor: pointer;
+}
+
+.profile-modal ul img {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+
 ul {
   list-style: none;
   display: flex;
@@ -392,7 +445,7 @@ section {
 }
 
 .collabs-content {
-  margin: 50px;
+      margin: 50px 0px;
 
   gap: 20px;
   display: flex;
@@ -400,6 +453,7 @@ section {
   align-items: center;
   background-color: var(--background-color);
   width: 100%;
+  overflow:hidden;
   overflow-x: auto;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -452,17 +506,17 @@ footer {
   background-color: var(--tertiary-color);
 }
 .footer-bottom {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  color: var(--font-color);
-
-  padding: 10px;
-  padding-left: 0px;
-  font-size: 0.9rem;
+display: flex
+;
+    flex-direction: column;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    /* width: 100%; */
+    color: var(--font-color);
+    margin: 10px;
+    /* padding-left: 0px; */
+    font-size: 0.9rem;
 }
 
 .footer-container {
@@ -472,6 +526,7 @@ footer {
   align-items: center;
   text-align: left;
   padding: 20px;
+  width:auto;
 }
 
 .footer-info-container {
@@ -480,7 +535,7 @@ footer {
   justify-content: space-around;
   align-items: center;
   text-align: left;
-  padding: 20px;
+      margin: 20px;
   border-radius: 30px 0px;
   width: 100%;
 }

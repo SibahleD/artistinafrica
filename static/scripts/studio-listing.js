@@ -33,3 +33,41 @@ window.onclick = function (event) {
     closeModal();
   }
 };
+
+  let slideIndex = 0;
+  showSlides(slideIndex);
+
+  function showSlides(n) {
+    let slides = document.querySelectorAll(".gallery-slide");
+    let dots = document.querySelectorAll(".dot");
+
+    // wrap around
+    if (n >= slides.length) { slideIndex = 0; }
+    if (n < 0) { slideIndex = slides.length - 1; }
+
+    slides.forEach(slide => slide.style.display = "none");
+    dots.forEach(dot => dot.classList.remove("active"));
+
+    slides[slideIndex].style.display = "block";
+    dots[slideIndex].classList.add("active");
+  }
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  document.querySelector(".prev").addEventListener("click", () => plusSlides(-1));
+  document.querySelector(".next").addEventListener("click", () => plusSlides(1));
+
+  document.querySelectorAll(".dot").forEach((dot, index) => {
+    dot.addEventListener("click", () => currentSlide(index));
+  });
+
+  // Optional: Auto-play
+  setInterval(() => {
+    plusSlides(1);
+  }, 5000); // Change slide every 5s

@@ -103,6 +103,58 @@ header {
   height: 30px;
 }
 
+.profile-modal {
+  font-family: var(--default-font);
+  font-weight: lighter;
+  margin: auto;
+  flex-direction: column;
+  background-color: var(--background-color);
+  align-items: stretch;
+  padding: 10px;
+  width: fit-content;
+  display: none;
+  position: absolute;
+  top: 90px;
+  right: 15px;
+  border-radius: 12px;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.profile-modal.show {
+  display: block;
+}
+
+.profile-modal ul {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 10px 0px;
+}
+
+.profile-modal li {
+  text-align: left;
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 10px 20px;
+  border-radius: 10px 0px;
+}
+
+.profile-modal li:hover {
+  background-color: var(--button-color);
+  cursor: pointer;
+}
+
+.profile-modal ul img {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
 li {
   display: flex;
   justify-content: center;
@@ -215,7 +267,7 @@ section {
   align-items: center;
   text-align: center;
   flex-direction: row;
-  padding: 40px;;
+  padding: 40px;
   background-image: linear-gradient(
       0deg,
       rgb(0, 8, 20) 0%,
@@ -452,6 +504,8 @@ section {
   padding: 20px;
   background-color: var(--primary-color);
   border-radius: 20px 0px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .prod-beats-content h3 {
@@ -599,6 +653,56 @@ section {
   padding-left: 20px;
 }
 
+.prod-beats-content {
+  margin-bottom: 30px;
+}
+
+.progress-slider,
+.volume-slider {
+  width: 100%;
+  appearance: none;
+  height: 6px;
+  border-radius: 4px;
+  background: #ccc;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition: opacity 0.3s;
+}
+
+.progress-slider {
+  width: 100%;
+  appearance: none;
+  height: 6px;
+  border-radius: 4px;
+  background: #ccc;
+  margin: 10px 0;
+  display: block;
+}
+
+.progress-slider::-webkit-slider-thumb,
+.volume-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #ff6700;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.progress-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #ff6700;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.btn-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
 /* Footer */
 
