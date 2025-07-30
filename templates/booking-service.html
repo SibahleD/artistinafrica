@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings | ArtistSync</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/as-favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/as-favicon-16x16.png">
+    <link href="../static/styles/booking-studio.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <img src="../static/images/artistsync-logo-col.png" alt="ArtSync Logo" class="header-logo">
+            <ul>
+                <li><a href="/">
+                        <img src="../static/images/icon-home.png" alt="Home Logo" class="header-icons">
+                    </a></li>
+                <li><a href="/artist-list">
+                        <img src="../static/images/icon-mic.png" alt="Mic Logo" class="header-icons">
+                    </a></li>
+                <li><a href="/">
+                        <img src="../static/images/icon-adjust.png" alt="Search Logo" class="header-icons">
+                    </a></li>
+                <li><a href="/">
+                        <img src="../static/images/icon-search.png" alt="Search Logo" class="header-icons">
+                    </a></li>
+            </ul>
+            <a class="header-user">
+                <img src="../static/images/icon-user.png" alt="User Logo" class="header-icons" id="dashboard-icon">
+            </a>
+        </div>
+    </header>
+
+    <div class="profile-modal">
+        <ul>
+            <li class="btn-dashboard" id="btn-dashboard"><a>
+                    <img src="../static/images/icon-profile.png" alt="Profile Logo">
+                </a>Profile</li>
+            <li class="btn-settings" id="btn-settings"><a>
+                    <img src="../static/images/icon-settings.png" alt="Settings Logo">
+                </a>User Settings</li>
+            <li class="btn-bookings" id="btn-bookings"><a>
+                    <img src="../static/images/icon-booking.png" alt="booking Logo">
+                </a>Bookings</li>
+            <li class="btn-chat" id="btn-chat"><a>
+                    <img src="../static/images/icon-chat.png" alt="chat Logo">
+                </a>SynChat</li>
+            <li class="btn-signout" id="btn-signout"><a>
+                    <img src="../static/images/icon-logout.png" alt="logout Logo">
+                </a>Log Out</li>
+        </ul>
+    </div>
+
+    
+    <section class="booking-management">
+        <h3>Upcoming Bookings</h3>
+        <div class="bookings-container">
+            <div class="booking-card">
+                <div class="booking-header">
+                    <h4>John Doe - Recording Session</h4>
+                    <span class="booking-status confirmed">Confirmed</span>
+                </div>
+                <div class="booking-details">
+                    <p><strong>Date:</strong> <span class="booking-date">2025-08-15</span></p>
+                    <p><strong>Time:</strong> <span class="booking-time">14:00 - 16:00</span></p>
+                    <p><strong>Service:</strong> <span class="booking-service">Hourly Recording</span></p>
+                </div>
+                <div class="booking-actions">
+                    <button class="btn-action edit">Reschedule</button>
+                    <button class="btn-action cancel">Cancel</button>
+                </div>
+            </div>
+            <div class="booking-card">
+                <div class="booking-header">
+                    <h4>Jane Smith - Mixing</h4>
+                    <span class="booking-status pending">Pending</span>
+                </div>
+                <div class="booking-details">
+                    <p><strong>Date:</strong> <span class="booking-date">2025-08-17</span></p>
+                    <p><strong>Time:</strong> <span class="booking-time">10:00 - 12:00</span></p>
+                    <p><strong>Service:</strong> <span class="booking-service">Mixing & Mastering</span></p>
+                </div>
+                <div class="booking-actions">
+                    <button class="btn-action confirm">Confirm</button>
+                    <button class="btn-action cancel">Decline</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
+    <footer>
+        <section class="footer-container">
+            <div class="footer-info-container">
+                <div class="footer-info-content">
+                    <h1>ArtistSync</h1>
+                    <h3>Connecting artists with the best studios and producers in Kigali.</h3>
+                </div>
+            </div>
+            <ul class="footer-content">
+                <li><a href="/">Home</a></li>
+                <li><a href="/artist-list">Artists</a></li>
+                <li><a href="studio-listing.html">Studios</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+
+        </section>
+        <div class="footer-bottom">
+            <p>&copy; Copywright © ArtistSync | Powered by DOGE Coin</p>
+        </div>
+    </footer>
+</body>
+<script src="../static/scripts/booking-service.js"></script>
+<script src="../static/scripts/uni-header.js"></script>
+
+</html>

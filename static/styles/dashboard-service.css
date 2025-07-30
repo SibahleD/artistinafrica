@@ -1,4 +1,5 @@
-/* Global Colors */
+/* dashboard-service.css */
+/* Global Colors - Same as artist dashboard */
 :root {
   --primary-color: #ff6700;
   --hover-color: #005766;
@@ -21,7 +22,8 @@
   --vivid-sky-blue: #48cae4ff;
   --non-photo-blue-2: #ade8f4ff;
 }
-/* Global Fonts */
+
+/* Global Fonts - Same as artist dashboard */
 @font-face {
   font-family: "Creato";
   src: url("../fonts/CreatoDisplay-Black.woff") format("woff"),
@@ -85,7 +87,7 @@ body {
 }
 
 /* ------------------- Header ------------------- */
-
+/* Same as artist dashboard */
 header {
   display: flex;
   flex-direction: row;
@@ -102,6 +104,7 @@ header {
   align-items: center;
   padding: 0 20px;
 }
+
 .header-logo {
   width: 50px;
   height: 50px;
@@ -133,7 +136,7 @@ header {
 }
 
 /* ------------------- Profile Modal ------------------- */
-
+/* Same as artist dashboard */
 .profile-modal {
   font-family: var(--default-font);
   font-weight: lighter;
@@ -173,9 +176,6 @@ header {
   justify-content: flex-start;
   padding: 10px 20px;
   border-radius: 10px 0px;
-  align-items: center;
-  color: var(--font-color);
-  font-weight: bold;
 }
 
 .profile-modal li:hover {
@@ -190,7 +190,6 @@ header {
 }
 
 /* ------------------- Hero Container ------------------- */
-
 .hero-container {
   width: 100%;
   display: flex;
@@ -211,7 +210,7 @@ header {
       rgb(0, 8, 20) 0%,
       rgba(0, 53, 102, 0.51) 100%
     ),
-    url(../images/studio-pic-1.jpg);
+    url(../images/service-bg.jpg);
   background-attachment: scroll;
   background-size: cover;
   background-position: center;
@@ -278,39 +277,21 @@ header {
 
 .hero-subtitle {
   color: var(--button-color);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle span {
   background-color: var(--alt-tertiary-color);
   padding: 8px 20px;
   border-radius: 20px 0px;
-  font-size: 1.8rem;
 }
 
-.hero-content-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-  margin: 0px;
-}
-
-/* ------------------- Button  ------------------- */
-
+/* ------------------- Button ------------------- */
+/* Same as artist dashboard */
 .btn-stand {
   color: var(--font-color);
   background-color: var(--button-color);
-  font-size: large;
-  padding: 10px 30px;
-  margin: 20px;
-  margin-bottom: 30px;
-  width: 180px;
-  border: none;
-  border-radius: 5px 0px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.btn-stand-delete {
-  color: var(--font-color);
-  background-color: rgb(255, 72, 72);
   font-size: large;
   padding: 10px 30px;
   margin: 20px;
@@ -344,8 +325,7 @@ header {
   transition: 0.3s;
 }
 
-/* ------------------- Artist Info ------------------- */
-
+/* ------------------- Service Info ------------------- */
 .hero-info-container {
   display: flex;
   flex-direction: row;
@@ -356,6 +336,7 @@ header {
   background-color: var(--alt-tertiary-color);
   border-radius: 20px 0px;
   width: 70%;
+  padding: 20px;
 }
 
 .hero-location-container {
@@ -365,7 +346,6 @@ header {
   align-items: center;
   text-align: center;
   gap: 10px;
-  padding: 20px 0px 20px 50px;
 }
 
 .location-icon {
@@ -378,23 +358,12 @@ header {
   font-size: 1.15rem;
 }
 
-.hero-location-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-  gap: 10px;
-  padding: 20px 0px 20px 50px;
-}
-
 .hero-social-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   text-align: center;
-  padding-right: 50px;
 }
 
 .hero-social-links {
@@ -416,12 +385,13 @@ header {
 }
 
 .hero-social-links a:hover {
-  transform: scale(0.9);
+  transform: scale(0.95);
+  background-color: var(--button-color);
 }
 
 .hero-social-icon {
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
   margin: 0px;
   padding-right: 10px;
 }
@@ -439,60 +409,39 @@ header {
 
 .hero-supporting-container h3 {
   padding: 10px 0px;
-font-family: var(--default-font);
+  font-family: var(--heading-font);
   font-size: 2rem;
   color: var(--font-color);
+  text-align: left;
+  margin-left: 20px;
 }
 
-.hero-supporting-container input {
-  background-color: var(--tertiary-colorv);
-  border: none;
-  padding: 10px;
-  color: var(--font-color);
-  font-size: 20px;
-  font-family: var(--default-font);
-  text-align: center;
-}
-
-.hero-about {
+.provider-bio {
   display: flex;
+  justify-content: center;
+  align-items: stretch;
+  text-align: left;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  text-align: left;
+  margin: 20px;
   padding: 20px;
+  border-radius: 20px 0px;
+  border: none;
   width: 100%;
-}
-
-.hero-about h3 {
-  text-align: left;
+  background-color: var(--background-color);
   color: var(--font-color);
-  font-size: 1.5rem;
-  font-weight: bolder;
-  margin-bottom: 15px;
+  font-size: 15px;
   font-family: var(--default-font);
 }
-
-.user-bio {
-  font-family: var(--default-font);
-  color: var(--font-color);
-  font-size: 1rem;
-  line-height: 1.6;
-  text-align: left;
-  width: 100%;
-}
-
-/* ------------------- Profile Modal ------------------- */
 
 .info-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: stretch;
   background-color: var(--background-color);
   width: 100%;
   margin: 20px 0px 50px 0px;
-  gap: 20px;
+  border-radius: 20px 0px;
 }
 
 .info-content {
@@ -501,55 +450,42 @@ font-family: var(--default-font);
   justify-content: flex-start;
   align-items: flex-start;
   text-align: left;
-  width: 48%;
+  width: 40%;
   height: auto;
   padding: 20px;
   border-radius: 20px 0px;
   background-color: var(--alt-tertiary-color);
+  margin: 10px;
 }
 
-.info-content p {
-  width: 100%;
-  margin-left: 50px;
-  text-align: left;
-  font-family: var(--default-font);
+.services-list, .pricing-list {
   list-style: none;
-  font-size: 16px;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
-.info-content h3 {
-  padding: 10px 0px;
-  font-size: 1.5rem;
-  color: var(--font-color);
-  margin-bottom: 15px;
-}
-
-.info-content li {
+.services-list li, .pricing-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--secondary-color);
   font-family: var(--default-font);
   color: var(--font-color);
-  list-style-type: disc;
-  padding: 5px 0;
-  margin: 0;
-  font-size: 0.9rem;
 }
 
-.info-content ul {
-  width: 100%;
-  padding-left: 20px;
+.services-list li:last-child, .pricing-list li:last-child {
+  border-bottom: none;
 }
 
-/* ------------------- Profile Modal ------------------- */
-
+/* ------------------- Portfolio Section ------------------- */
 .portfolio-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
-  background-color: var(--alt-tertiary-color);
-  width: 100%;
-  overflow: auto;
-  white-space: nowrap;
   align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 20px 0;
+  background-color: var(--alt-tertiary-color);
 }
 
 .portfolio-container h3 {
@@ -558,188 +494,305 @@ font-family: var(--default-font);
   color: var(--font-color);
   margin: 30px 0px 10px 0px;
   width: 70%;
+  text-align: left;
 }
 
 .portfolio-content {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  flex-wrap: wrap;
   gap: 20px;
-  padding: 20px 0px;
-  width: 70%;
-}
-
-.portfolio-content input {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
-  flex-wrap: wrap;
-  width: 40%;
-  gap: 20px;
-  background-color: var(--primary-color);
-  border-radius: 20px 0px;
-}
-
-/* ------------------- Prod Beats Content ------------------- */
-
-.prod-beats-content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  align-content: stretch;
-  /* width: 40%; */
-  /* gap: 20px; */
   padding: 20px;
-  background-color: var(--primary-color);
-  border-radius: 20px 0px;
+  width: 70%;
+  overflow-x: auto;
 }
 
-.prod-beats-content h3 {
-  font-family: var(--heading-font);
-  font-size: 1.5rem;
-  color: var(--font-color);
-  margin: 0px;
-  text-align: left;
-}
-
-.beat-add {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: auto;
-  background-color: var(--primary-color);
-  padding: 10px 20px;
-  border-radius: 15px 0px;
-}
-
-.beat-add img {
-  width: 50px;
-  height: 50px;
-}
-
-.beat-add h3 {
-  font-size: 1.2rem;
-  margin: 0px;
-  padding: 0px;
-  padding-left: 10px;
-}
-
-/* ------------------- Profile Modal ------------------- */
-
-.beat-modal-content {
+.portfolio-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: var(--alt-tertiary-color);
-  padding: 20px;
+  min-width: 300px;
+  height: 300px;
+  background-color: var(--background-color);
   border-radius: 20px 0px;
-  z-index: 1000;
-  width: 900px;
-  text-align: center;
+  overflow: hidden;
   position: relative;
 }
 
-.beat-modal-content h3 {
-  width: auto;
-  padding: 0px;
-  margin: 30px 0px 20px;
+.portfolio-item img, .portfolio-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.beat-upload-container {
-  border: 2px dashed #ccc;
-  border-radius: 10px;
-  padding: 30px;
+.portfolio-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  font-family: var(--default-font);
+}
+
+.portfolio-add {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 30px;
+  background-color: var(--button-color);
+  border-radius: 15px 0px;
   margin: 20px 0;
   cursor: pointer;
-  transition: border-color 0.3s;
-  width: 80%;
-  height: 450px;
+}
+
+.portfolio-add:hover {
+  background-color: var(--button-hover-color);
+}
+
+.portfolio-add img {
+  width: 30px;
+  height: 30px;
+}
+
+/* ------------------- Availability Section ------------------- */
+.availability-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-}
-
-.prod-beats-content {
-  display: flex;
-  flex-direction: row;
   align-items: center;
-  align-content: stretch;
-  padding: 10px;
-  background-color: var(--primary-color);
+  width: 100%;
+  padding: 20px 0;
+  background-color: var(--background-color);
+}
+
+.availability-section h3 {
+  font-family: var(--heading-font);
+  font-size: 2.2rem;
+  color: var(--font-color);
+  margin: 30px 0px 10px 0px;
+  width: 70%;
+  text-align: left;
+}
+
+.calendar-container {
+  width: 70%;
+  background-color: var(--alt-tertiary-color);
   border-radius: 20px 0px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.calendar-header {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.beat-upload-container img {
-  width: 300px;
-  height: 300px;
-}
-
-.click-text {
-  color: #007bff;
-  text-decoration: underline;
+.calendar-nav {
+  background-color: var(--button-color);
+  color: var(--font-color);
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px 0px;
   cursor: pointer;
 }
 
-.btn-controls {
+.calendar-nav:hover {
+  background-color: var(--button-hover-color);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.calendar-day {
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px 0px;
+  cursor: pointer;
+}
+
+.calendar-day.available {
+  background-color: var(--button-color);
+}
+
+.calendar-day.booked {
+  background-color: var(--primary-color);
+}
+
+.calendar-day.partial {
+  background: linear-gradient(135deg, var(--button-color) 50%, var(--primary-color) 50%);
+}
+
+.availability-legend {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
   gap: 20px;
+  margin-top: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px 0px;
+}
+
+.legend-color.available {
+  background-color: var(--button-color);
+}
+
+.legend-color.booked {
+  background-color: var(--primary-color);
+}
+
+.legend-color.partial {
+  background: linear-gradient(135deg, var(--button-color) 50%, var(--primary-color) 50%);
+}
+
+/* ------------------- Edit Profile Modal ------------------- */
+.edit-profile-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.edit-profile-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.edit-profile-container {
+  position: relative;
+  width: 80%;
+  max-width: 1200px;
+  height: 80%;
+  margin: 5% auto;
+  background-color: var(--background-color);
+  border-radius: 20px 0px;
+  display: flex;
+  overflow: hidden;
+}
+
+.edit-profile-menu {
+  width: 250px;
+  background-color: var(--alt-tertiary-color);
   padding: 20px;
 }
 
-.modal-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-}
-
-.modal-close-btn,
-.modal-submit-btn {
+.edit-profile-menu h2 {
+  font-family: var(--heading-font);
   color: var(--font-color);
-  background-color: var(--button-color);
-  font-size: large;
-  padding: 10px 30px;
-  margin: 20px;
   margin-bottom: 30px;
-  width: 180px;
-  border: none;
-  border-radius: 5px 0px;
-  cursor: pointer;
-  transition: 0.3s;
-  margin-top: 10px;
 }
 
-.modal-submit-btn {
-  background: var(--button-color);
+.edit-menu-list {
+  list-style: none;
+  padding: 0;
+}
+
+.edit-menu-list li {
+  padding: 15px;
+  margin-bottom: 5px;
+  border-radius: 10px 0px;
+  cursor: pointer;
+}
+
+.edit-menu-list li:hover {
+  background-color: var(--button-color);
+}
+
+.edit-profile-form {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.edit-section {
+  display: none;
+}
+
+.edit-section.active {
+  display: block;
+}
+
+.edit-input {
+  margin-bottom: 20px;
+}
+
+.edit-input label {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--default-font);
   color: var(--font-color);
 }
 
-.modal-close-btn {
-  background: var(--background-alt-color);
-  color: var(--font-alt-color);
+.edit-input input,
+.edit-input textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px 0px;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--alt-tertiary-color);
+  color: var(--font-color);
+  font-family: var(--default-font);
+}
+
+.edit-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn-edit {
+  padding: 10px 25px;
+  border-radius: 10px 0px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--default-font);
+}
+
+.btn-edit[type="submit"] {
+  background-color: var(--button-color);
+  color: var(--font-color);
+}
+
+.btn-edit[type="button"] {
+  background-color: var(--primary-color);
+  color: var(--font-color);
 }
 
 /* ------------------- Footer ------------------- */
-
+/* Same as artist dashboard */
 footer {
   display: flex;
   flex-direction: column;
   left: 0;
   bottom: 0;
   width: 100%;
-
   background-color: var(--tertiary-color);
 }
+
 .footer-bottom {
   display: flex;
   flex-direction: column;
@@ -748,7 +801,6 @@ footer {
   bottom: 0;
   width: 100%;
   color: var(--font-color);
-
   padding: 10px;
   padding-left: 0px;
   font-size: 0.9rem;
@@ -797,16 +849,6 @@ footer {
   width: 130px;
   height: auto;
   margin-right: 20px;
-}
-
-.footer-links-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: left;
-  padding: 20px;
-  width: 35%;
 }
 
 .footer-content {

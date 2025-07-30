@@ -322,7 +322,7 @@ section {
   display: flex;
   align-items: center;
   background-color: var(--background-color);
-  width: 100%;
+  width: 80%;
   overflow-x: auto;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -452,7 +452,7 @@ section {
   justify-content: space-between;
   align-items: center;
   background-color: var(--background-color);
-  width: 100%;
+  width: 80%;
   overflow:hidden;
   overflow-x: auto;
   flex-direction: row;

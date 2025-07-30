@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Settings | ArtistSync</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/as-favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/as-favicon-16x16.png">
+    <link href="../static/styles/user-settings.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <img src="../static/images/artistsync-logo-col.png" alt="ArtSync Logo" class="header-logo">
+            <ul>
+                <li><a href="/">
+                        <img src="../static/images/icon-home.png" alt="Home Logo" class="header-icons">
+                    </a></li>
+                <li><a href="/artists">
+                        <img src="../static/images/icon-mic.png" alt="Mic Logo" class="header-icons">
+                    </a></li>
+                <li><a href="/studio">
+                        <img src="../static/images/icon-adjust.png" alt="Search Logo" class="header-icons">
+                    </a></li>
+                <li><a href="index.html">
+                        <img src="../static/images/icon-search.png" alt="Search Logo" class="header-icons">
+                    </a></li>
+            </ul>
+            <a class="header-user" href="/dashboard-artist">
+                <img src="../static/images/icon-user.png" alt="User Logo" class="header-icons">
+            </a>
+        </div>
+    </header>
+
+    <div class="profile-modal">
+        <ul>
+            <li class="btn-dashboard" id="btn-dashboard"><a>
+                    <img src="../static/images/icon-profile.png" alt="Profile Logo">
+                </a>Profile</li>
+            <li class="btn-settings" id="btn-settings"><a>
+                    <img src="../static/images/icon-settings.png" alt="Settings Logo">
+                </a>User Settings</li>
+            <li class="btn-bookings" id="btn-bookings"><a>
+                    <img src="../static/images/icon-booking.png" alt="booking Logo">
+                </a>Bookings</li>
+            <li class="btn-chat" id="btn-chat"><a>
+                    <img src="../static/images/icon-chat.png" alt="chat Logo">
+                </a>SynChat</li>
+            <li class="btn-signout" id="btn-signout"><a>
+                    <img src="../static/images/icon-logout.png" alt="logout Logo">
+                </a>Log Out</li>
+        </ul>
+    </div>
+
+
+    <section class="edit-profile-modal">
+        <div class="edit-profile-container">
+            <div class="edit-profile-menu">
+                <h2>Edit Profile Details</h2>
+                <ul class="edit-menu-list">
+                    <li data-section="general">General Info</li>
+                    <li data-section="password">Password Change</li>
+                    <li data-section="socials">Social Profiles</li>
+                    <li data-section="skills">Skillset</li>
+                    <li data-section="pricing">Beat Pricing</li>
+                    <li data-section="booking">Booking Pricing</li>
+                </ul>
+            </div>
+
+            <form class="edit-profile-form" enctype="multipart/form-data">
+
+                <div class="edit-profile-general" data-name="general">
+                    <h2>General Info</h2>
+                    <div class="profile-pic-upload">
+                        <label for="profile-pic-input">
+                            <img src="../static/images/avatar-placeholder.png" class="profile-pic"
+                                alt="Profile Picture">
+                            <p>Change Profile Picture</p>
+                        </label>
+                        <input type="file" id="profile-pic-input" name="profile_picture" accept="image/*" hidden>
+                    </div>
+
+                    <div class="edit-input">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+
+                    <div class="edit-input">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title" required>
+                    </div>
+
+                    <div class="edit-input">
+                        <label for="bio">User Bio</label>
+                        <textarea id="bio" name="bio" rows="4" required></textarea>
+                    </div>
+
+                    <div class="edit-input">
+                        <label for="country">Your Country/Region*</label>
+                        <select id="country" name="country" required>
+                            <option value="Rwanda">Rwanda</option>
+                            <option value="Eswatini">Eswatini</option>
+                            <option value="South Africa">South Africa</option>
+                        </select>
+                    </div>
+
+                    <div class="edit-input">
+                        <label for="city">City/Town*</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+
+                    <div class="edit-btn-container">
+                        <button class="btn-edit" type="submit">Save</button>
+                        <button class="btn-edit" type="button">Cancel</button>
+                    </div>
+                </div>
+
+                <div class="edit-profile-password" data-name="password">
+                    <h2>Password Change</h2>
+
+                    <div class="edit-input">
+                        <label for="password-old">Existing Password</label>
+                        <input type="text" id="password-old" name="password-old" required>
+                    </div>
+
+                    <div class="edit-input">
+                        <label for="password-new">New Password</label>
+                        <input type=text id="password-new" name="password-new" required></textarea>
+                    </div>
+
+                    <div class="edit-input">
+                        <label for="password-again">New Password Again</label>
+                        <input type="text" id="password-again" name="password-again" required>
+                    </div>
+
+                    <div class="edit-btn-container">
+                        <button class="btn-edit" type="submit">Save</button>
+                        <button class="btn-edit" type="button">Cancel</button>
+                    </div>
+                </div>
+
+                <div class="edit-profile-skills" data-name="skills">
+                    <h2>Skillset</h2>
+
+                    <div class="skill-list" id="skillList">
+                        <div class="skill-item">
+                            <input>
+                            <div class="skill-actions">
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <input disabled>
+                            <div class="skill-actions">
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <input>
+                            <div class="skill-actions">
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="add-skill">
+                        <input type="text" id="newSkill" placeholder="Enter new skill">
+                        <button type="button" onclick="addSkill()">Add</button>
+                    </div>
+
+                    <div class="edit-btn-container">
+                        <button class="btn-edit" type="submit">Save</button>
+                        <button class="btn-edit" type="button">Cancel</button>
+                    </div>
+                </div>
+
+                <div class="edit-profile-socials" data-name="socials">
+                    <h2>Social Profiles</h2>
+                    <p>Provide the links to the relevant Social Media accounts</p>
+                    <div class="edit-socials-content">
+                        <div class="edit-input">
+                            <label for="Facebook">FaceBook</label>
+                            <input type="text" id="socials-fb-link" name="socials-fb-link">
+                        </div>
+                        <div class="edit-input">
+                            <label for="Instagram">Instagram</label>
+                            <input type="text" id="socials-ig-link" name="socials-ig-link">
+                        </div>
+                        <div class="edit-input">
+                            <label for="Twitter">X (Twitter)</label>
+                            <input type="text" id="socials-x-link" name="socials-x-link">
+                        </div>
+                        <div class="edit-input">
+                            <label for="Youtube">YouTube</label>
+                            <input type="text" id="socials-x-link" name="socials-x-link">
+                        </div>
+                        <div class="edit-input">
+                            <label for="Twitter">Spotify</label>
+                            <input type="text" id="socials-x-link" name="socials-x-link">
+                        </div>
+                    </div>
+                    <div class="edit-btn-container">
+                        <button class="btn-edit" type="submit">Save</button>
+                        <button class="btn-edit" type="button">Cancel</button>
+                    </div>
+                </div>
+
+                <div class="edit-profile-pricing" data-name="pricing">
+                    <h2>Pricing Info</h2>
+
+
+                    <div class="edit-lease-existing">
+                        <h3>Existing Leases</h3>
+                        <div class="lease-listing">
+                            <h3>Non-Exclusive Lease</h3>
+                            <p>10 000 RWF</p>
+                        </div>
+                    </div>
+                    <div class="pricing-add-lease">
+                        <div class="edit-pricing-title">
+                            <h2>Add New Lease</h2>
+                            <img src="../static/images/icons-dropdown.png" width="40px">
+                        </div>
+                        <div class="edit-pricing-content">
+                            <div class="edit-input">
+                                <label for="lease-type">Lease Type</label>
+                                <select id="lease-type" name="lease-type" required>
+                                    <option value="non-exclusive">Non-Exclusive Lease</option>
+                                    <option value="exclusive">Exclusive Lease</option>
+                                    <option value="mp3-lease">MP3 Lease</option>
+                                    <option value="trackouts">Trackouts Lease</option>
+                                    <option value="wav-lease">WAV Lease</option>
+                                    <option value="unlimited">Unlimited Lease</option>
+                                </select>
+                            </div>
+
+                            <div class="edit-input">
+                                <label for="Twitter">Price (RWF)</label>
+                                <input type="number" id="lease-price" name="lease-price" required>
+                            </div>
+                            <a>Learn more about lease agreements here</a>
+                            <button class="btn-add-lease">Add</button>
+                        </div>
+                    </div>
+
+                    <div class="edit-btn-container">
+                        <button class="btn-edit" type="submit">Save</button>
+                        <button class="btn-edit" type="button">Cancel</button>
+                    </div>
+                </div>
+
+                <div class="edit-profile-booking" data-name="booking">
+                    <h2>Booking Pricing</h2>
+                    <div class="edit-lease-existing">
+                        <h3>Existing Pricing</h3>
+                        <div class="lease-listing">
+                            <h3 id="lease-title">Full Day Studio Rental</h3>
+                            <p id="lease-pricing">10 000 RWF</p>
+                        </div>
+                    </div>
+                    <div class="pricing-add-booking">
+                        <div class="edit-pricing-title">
+                            <h2>Add New Pricing</h2>
+                            <img src="../static/images/icons-dropdown.png" width="40px">
+                        </div>
+                        <div class="edit-pricing-content">
+                            <div class="edit-input">
+                                <label for="lease-type">Lease Type</label>
+                                <select id="lease-type" name="lease-type" required>
+                                    <option value="hour-record">Hourly Recording</option>
+                                    <option value="full-day-record">Full Day Studio Rental</option>
+                                    <option value="half-day-record">Half-Day Studio Rental</option>
+                                    <option value="mixing-mastering">Mixing and Mastering</option>
+                                    <option value="mixing-mastering">Full Song Production</option>
+                                </select>
+                            </div>
+
+                            <div class="edit-input">
+                                <label for="Twitter">Price (RWF)</label>
+                                <input type="number" id="lease-price" name="lease-price" required>
+                            </div>
+                            <a>Learn more about lease agreements here</a>
+                            <button class="btn-add-lease">Add</button>
+                        </div>
+                    </div>
+
+                    <div class="edit-btn-container">
+                        <button class="btn-edit" type="submit">Save</button>
+                        <button class="btn-edit" type="button">Cancel</button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <section class="footer-container">
+            <div class="footer-info-container">
+                <div class="footer-info-content">
+                    <img src="../static/images/artistsync-logo-col.png" alt="ArtistSync Logo" class="footer-logo">
+                    <div>
+                        <h1>ArtistSync</h1>
+                        <h3>Connecting artists with the best studios and producers in Kigali.</h3>
+                    </div>
+                </div>
+                <ul class="social-links">
+                    <li><a href="https://www.facebook.com/ArtistSync">
+                            <img src="../static/images/icon-facebook.png" alt="Facebook">
+                        </a></li>
+                    <li><a href="https://www.twitter.com/ArtistSync">
+                            <img src="../static/images/icon-twitter.png" alt="Twitter">
+                        </a></li>
+                    <li><a href="https://www.instagram.com/ArtistSync">
+                            <img src="../static/images/icon-instagram.png" alt="Instagram">
+                        </a></li>
+                </ul>
+            </div>
+            <ul class="footer-content">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="artist-listing.html">Artists</a></li>
+                <li><a href="studio-listing.html">Studios</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+
+        </section>
+        <div class="footer-bottom">
+            <p>&copy; Copywright © ArtistSync | Powered by DOGE Coin</p>
+        </div>
+    </footer>
+</body>
+<script src="../static/scripts/uni-header.js"></script>
+<script src="../static/scripts/user-settings.js"></script>
+
+
+</html>

@@ -60,6 +60,15 @@ def create_tables():
         )
     ''')
 
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS artist_skills (
+            skill_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER NOT NULL,
+            skill TEXT NOT NULL,
+            FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE
+        )
+    ''')
+
     # Studio Owner Profiles
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS studio_profiles (

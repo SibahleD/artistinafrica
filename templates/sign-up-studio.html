@@ -17,7 +17,7 @@
     <section class="hero-container">
         <div class="hero-content">
             <div class="hero-logo">
-                <img src="../static/images/artistsync-logo-col.png" alt="artistsync-logo" class="header-logo">
+                <img src="../static/images/artistsync-logo-white.png" alt="artistsync-logo" class="header-logo">
                 <h1 class="hero-logo-title">
                     Artist<span>Sync</span>
                 </h1>
@@ -27,19 +27,13 @@
             </p>
         </div>
         <div class="hero-form">
-            <form id="artist-register-form">
+            <form id="studio-register-form">
                 <h2>Register as Studio Owner</h2>
 
+                
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email">Email*</label>
                     <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <div class="username-input">
-                        <input type="text" id="username" name="username" required>
-                    </div>
                 </div>
 
                 <div class="form-group">
@@ -47,19 +41,33 @@
                     <div class="password-input">
                         <input type="password" id="password" name="password" required>
                         <button type="button" class="btn-pass-show">
-                        <img src="../static/images/icon-lock.png" alt="lock-icon" id="password-show">
-                    </button>
+                            <img src="../static/images/icon-lock.png" alt="lock-icon" id="password-show">
+                        </button>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="password-again">Password again</label>
-                    <div class="password-input">
-                        <input type="password" id="password-again" name="password-again" required>
-                        <button type="button" class="btn-pass-show">
-                        <img src="../static/images/icon-lock.png" alt="lock-icon" id="password-show">
-                    </button>
-                    </div>
+                    <label for="username">Username*</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Your Country/Region*</label>
+                    <select id="country" name="country" required>
+                        <option>Rwanda</option>
+                        <option>Eswatini</option>
+                        <option>South Africa</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>City/Town*</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Studio Name*</label>
+                    <input type="text" id="studio-name" name="studio-name" required>
                 </div>
 
                 <div class="form-group">

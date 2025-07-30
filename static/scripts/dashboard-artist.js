@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Bio
     const bio = document.querySelector(".user-bio");
-    bio.textContent = data.user_bio?.trim() || "No bio available";
+    bio.textContent = data.user_bio?.trim() || "No bios available";
 
     // Skills
     const skillsList = document.querySelector(".skills-list");
@@ -357,4 +357,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     });
   }
+
+  const openBtn = document.getElementById("btn-edit-profile");
+  openBtn?.addEventListener("click", () => {
+    window.location.href = "/user-settings";
+  });
 });

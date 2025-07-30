@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Dashboard | ArtistSync</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/as-favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/as-favicon-16x16.png">
+    <link href="../static/styles/dashboard-studio.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <img src="../static/images/artistsync-logo-col.png" alt="ArtSync Logo" class="header-logo">
+            <ul>
+                <li><a href="/">
+                        <img src="../static/images/icon-home.png" alt="Home Logo" class="header-icons">
+                    </a></li>
+                <li><a href="/artists">
+                        <img src="../static/images/icon-mic.png" alt="Mic Logo" class="header-icons">
+                    </a></li>
+                <li><a href="/studio">
+                        <img src="../static/images/icon-adjust.png" alt="Search Logo" class="header-icons">
+                    </a></li>
+                <li><a href="index.html">
+                        <img src="../static/images/icon-search.png" alt="Search Logo" class="header-icons">
+                    </a></li>
+            </ul>
+            <a class="header-user">
+                <img src="../static/images/icon-user.png" alt="User Logo" class="header-icons">
+            </a>
+        </div>
+    </header>
+
+    <div class="profile-modal">
+        <ul>
+            <li class="btn-dashboard" id="btn-dashboard"><a>
+                    <img src="../static/images/icon-profile.png" alt="Profile Logo">
+                </a>Profile</li>
+            <li class="btn-verified" id="btn-verified"><a>
+                    <img src="../static/images/icon-settings.png" alt="verified Logo">
+                </a>User Settings</li>
+            <li class="btn-bookings" id="btn-bookings"><a>
+                    <img src="../static/images/icon-booking.png" alt="booking Logo">
+                </a>Bookings</li>
+            <li class="btn-chat" id="btn-chat"><a>
+                    <img src="../static/images/icon-chat.png" alt="chat Logo">
+                </a>SynChat</li>
+            <li class="btn-delete" id="btn-chat"><a>
+                    <img src="../static/images/icon-delete.png" alt="delete Logo">
+                </a>Delete Account</li>
+            <li class="btn-signout" id="btn-signout"><a>
+                    <img src="../static/images/icon-logout.png" alt="logout Logo">
+                </a>Log Out</li>
+        </ul>
+    </div>
+
+    <section class="dashboard-hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-content-text">
+                    <img class="hero-avatar-image" src="../static/images/studio-pic-1.jpg" alt="Studio Image">
+                    <div class="hero--container">
+                        <div class="hero-title-container">
+                            <h1 class="hero-title" id="studio-name">Studio Name</h1>
+                        </div>
+                        <h2 class="hero-subtitle" id="studio-owner">
+                            Owned by <span id="owner-name">Owner Name</span>
+                        </h2>
+                        <div class="hero-content-button">
+                            <button class="btn-stand" id="btn-edit-profile">Edit Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-info-container">
+                <div class="hero-location-container">
+                    <img class="location-icon" src="../static/images/icon-location.png" alt="Location Icon">
+                    <h2 class="hero-location" id="studio-location">City, Country</h2>
+                </div>
+                <div class="hero-social-container">
+                    <div class="hero-social-links">
+                        <a href="#" id="studio-facebook">
+                            <img src="../static/images/icon-facebook.png" alt="Facebook Icon" class="hero-social-icon">
+                            Facebook
+                        </a>
+                        <a href="#" id="studio-twitter">
+                            <img src="../static/images/icon-twitter.png" alt="Twitter Icon" class="hero-social-icon">
+                            Twitter
+                        </a>
+                        <a href="#" id="studio-instagram">
+                            <img src="../static/images/icon-instagram.png" alt="Instagram Icon"
+                                class="hero-social-icon">
+                            Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-supporting-container">
+                <div class="hero-about">
+                    <h3>About the Studio</h3>
+                    <p class="studio-bio">A premier recording studio offering top-notch services.</p>
+                </div>
+                <div class="info-container">
+                    <div class="info-content">
+                        <h3>Equipment</h3>
+                        <ul class="equipment-list" id="equipment-list">
+                            <li>Yamaha HS8 Monitors</li>
+                            <li>Focusrite Scarlett Audio Interface</li>
+                        </ul>
+                    </div>
+                    <div class="info-content">
+                        <h3>Pricing</h3>
+                        <ul class="pricing-list" id="pricing-list">
+                            <li>Hourly Recording: 10,000 RWF</li>
+                            <li>Mixing: 30,000 RWF/track</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="portfolio-container">
+        <h3>Studio Gallery</h3>
+        <div class="gallery-content">
+            <div class="gallery-item">
+                <img src="../static/images/studio-pic-1.jpg" alt="Studio Image">
+                <div class="gallery-caption">Main Recording Room</div>
+            </div>
+            <div class="gallery-item">
+                <img src="../static/images/studio-pic-2.jpg" alt="Studio Image">
+                <div class="gallery-caption">Control Room</div>
+            </div>
+        </div>
+
+        <div class="beat-add">
+            <img src="../static/images/icon-add.png">
+            <h3>Add Gallery Photos...</h3>
+        </div>
+    </div>
+
+
+
+    <section class="edit-profile-modal">
+        <!-- Similar to artist dashboard edit modal but with studio-specific fields -->
+        <div class="edit-profile-overlay"></div>
+        <div class="edit-profile-container">
+            <div class="edit-profile-menu">
+                <h2>Edit Studio Profile</h2>
+                <ul class="edit-menu-list">
+                    <li data-section="general">General Info</li>
+                    <li data-section="equipment">Equipment</li>
+                    <li data-section="pricing">Pricing</li>
+                    <li data-section="gallery">Gallery</li>
+                </ul>
+            </div>
+
+            <form class="edit-profile-form" enctype="multipart/form-data">
+                <div class="edit-section" data-name="general">
+                    <h2>Studio Information</h2>
+                    <div class="edit-input">
+                        <label for="studio-name">Studio Name*</label>
+                        <input type="text" id="studio-name" name="studio_name">
+                    </div>
+
+                    <div class="edit-input">
+                        <label for="studio-bio">Studio Description</label>
+                        <textarea id="studio-bio" name="studio_bio" rows="4"></textarea>
+                    </div>
+
+                    <div class="edit-input">
+                        <label for="studio-location">Location*</label>
+                        <input type="text" id="studio-location" name="studio_location">
+                    </div>
+
+                    <div class="edit-btn-container">
+                        <button class="btn-edit" type="submit">Save</button>
+                        <button class="btn-edit" type="button">Cancel</button>
+                    </div>
+                </div>
+
+                <div class="edit-section" data-name="equipment">
+                    <h2>Studio Equipment</h2>
+                    <div class="equipment-list" id="studioEquipmentList">
+                        <!-- Equipment items will be added here dynamically -->
+                    </div>
+                    <div class="add-equipment">
+                        <input type="text" id="new-equipment" placeholder="Add new equipment">
+                        <button type="button" class="btn-add">Add</button>
+                    </div>
+                    <div class="edit-btn-container">
+                        <button class="btn-edit" type="submit">Save</button>
+                        <button class="btn-edit" type="button">Cancel</button>
+                    </div>
+                </div>
+
+                <div class="edit-section" data-name="pricing">
+                    <h2>Pricing & Services</h2>
+                    <div class="pricing-list" id="pricing-list-edit">
+                        <!-- Existing prices will be loaded here -->
+                    </div>
+                    <div class="add-pricing">
+                        <div class="edit-input">
+                            <label for="service-type">Service Type*</label>
+                            <select id="service-type" name="service_type" required>
+                                <option value="">Select a service</option>
+                                <option value="Hourly Recording">Hourly Recording</option>
+                                <option value="Mixing and Mastering">Mixing and Mastering</option>
+                                <option value="Full Day Rental">Full Day Rental</option>
+                            </select>
+                        </div>
+                        <div class="edit-input">
+                            <label for="service-price">Price (RWF)*</label>
+                            <input type="number" id="service-price" placeholder="Enter price" required>
+                        </div>
+                        <button type="button" class="btn-add" id="btn-add-price">Add Service</button>
+                    </div>
+                    <div class="edit-btn-container">
+                        <button class="btn-edit" type="submit">Save</button>
+                        <button class="btn-edit" type="button" id="btn-cancel-pricing">Cancel</button>
+                    </div>
+                </div>
+
+
+                <div class="edit-section" data-name="gallery">
+                    <h2>Studio Gallery</h2>
+                    <div class="gallery-upload">
+                        <input type="file" id="gallery-upload" accept="image/*" multiple>
+                    </div>
+                    <div class="gallery-preview">
+                        <!-- Gallery images will appear here -->
+                    </div>
+                    <div class="edit-btn-container">
+                        <button class="btn-edit" type="submit">Save</button>
+                        <button class="btn-edit" type="button">Cancel</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <section class="footer-container">
+            <div class="footer-info-container">
+                <div class="footer-info-content">
+                    <img src="../static/images/artistsync-logo-col.png" alt="ArtistSync Logo" class="footer-logo">
+                    <div>
+                        <h1>ArtistSync</h1>
+                        <h3>Connecting artists with the best studios and producers in Kigali.</h3>
+                    </div>
+                </div>
+                <ul class="social-links">
+                    <li><a href="https://www.facebook.com/ArtistSync">
+                            <img src="../static/images/icon-facebook.png" alt="Facebook">
+                        </a></li>
+                    <li><a href="https://www.twitter.com/ArtistSync">
+                            <img src="../static/images/icon-twitter.png" alt="Twitter">
+                        </a></li>
+                    <li><a href="https://www.instagram.com/ArtistSync">
+                            <img src="../static/images/icon-instagram.png" alt="Instagram">
+                        </a></li>
+                </ul>
+            </div>
+            <ul class="footer-content">
+                <li><a href="/">Home</a></li>
+                <li><a href="/artist-list">Artists</a></li>
+                <li><a href="studio-listing.html">Studios</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+
+        </section>
+        <div class="footer-bottom">
+            <p>&copy; Copywright © ArtistSync | Powered by DOGE Coin</p>
+        </div>
+    </footer>
+</body>
+<script src="../static/scripts/uni-header.js"></script>
+<script src="../static/scripts/dashboard-studio.js"></script>
+
+</html>

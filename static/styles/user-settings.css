@@ -20,6 +20,7 @@
   --blue-green: #0096c7ff;
   --vivid-sky-blue: #48cae4ff;
   --non-photo-blue-2: #ade8f4ff;
+  --font-inactive-color: #6b6b6b;
 }
 /* Global Fonts */
 @font-face {
@@ -78,7 +79,7 @@ h1 {
 }
 
 body {
-  background: #000814;
+  background: linear-gradient(90deg, #000814 0%, #003566 100%);
   padding: 0;
   margin: 0;
   transition: 0.3s;
@@ -173,9 +174,9 @@ header {
   justify-content: flex-start;
   padding: 10px 20px;
   border-radius: 10px 0px;
-  align-items: center;
   color: var(--font-color);
   font-weight: bold;
+  align-items: center;
 }
 
 .profile-modal li:hover {
@@ -251,7 +252,6 @@ header {
   height: 300px;
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid var(--button-color);
 }
 
 .hero--container {
@@ -278,10 +278,6 @@ header {
 
 .hero-subtitle {
   color: var(--button-color);
-  background-color: var(--alt-tertiary-color);
-  padding: 8px 20px;
-  border-radius: 20px 0px;
-  font-size: 1.8rem;
 }
 
 .hero-content-button {
@@ -341,6 +337,28 @@ header {
 
 .btn-stand-alt:hover {
   background-color: var(--alt-secondary-color);
+  transition: 0.3s;
+}
+
+.edit-btn-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  width: 100%;
+  align-items: stretch;
+}
+
+.btn-edit {
+  color: var(--font-color);
+  background-color: var(--button-color);
+  font-size: large;
+  padding: 10px 30px;
+  margin: 20px;
+  margin-bottom: 30px;
+  width: 180px;
+  border: none;
+  border-radius: 5px 0px;
+  cursor: pointer;
   transition: 0.3s;
 }
 
@@ -410,9 +428,6 @@ header {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 8px 15px;
-  background-color: var(--background-color);
-  border-radius: 15px 0px;
 }
 
 .hero-social-links a:hover {
@@ -439,7 +454,7 @@ header {
 
 .hero-supporting-container h3 {
   padding: 10px 0px;
-font-family: var(--default-font);
+  font-family: var(--heading-font);
   font-size: 2rem;
   color: var(--font-color);
 }
@@ -456,10 +471,10 @@ font-family: var(--default-font);
 
 .hero-about {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
   padding: 20px;
   width: 100%;
 }
@@ -469,17 +484,23 @@ font-family: var(--default-font);
   color: var(--font-color);
   font-size: 1.5rem;
   font-weight: bolder;
-  margin-bottom: 15px;
-  font-family: var(--default-font);
 }
 
 .user-bio {
-  font-family: var(--default-font);
-  color: var(--font-color);
-  font-size: 1rem;
-  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
   text-align: left;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 20px 0px;
+  border: none;
   width: 100%;
+  background-color: var(--background-color);
+  color: var(--font-color);
+  font-size: 15px;
+  font-family: var(--default-font);
 }
 
 /* ------------------- Profile Modal ------------------- */
@@ -487,23 +508,22 @@ font-family: var(--default-font);
 .info-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: stretch;
   background-color: var(--background-color);
   width: 100%;
   margin: 20px 0px 50px 0px;
-  gap: 20px;
 }
 
 .info-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   text-align: left;
-  width: 48%;
+  width: 40%;
   height: auto;
-  padding: 20px;
+  padding: 20px 20px 20px 40px;
   border-radius: 20px 0px;
   background-color: var(--alt-tertiary-color);
 }
@@ -519,214 +539,351 @@ font-family: var(--default-font);
 
 .info-content h3 {
   padding: 10px 0px;
-  font-size: 1.5rem;
+  font-family: var(--heading-font);
+  font-size: 2rem;
   color: var(--font-color);
-  margin-bottom: 15px;
 }
 
 .info-content li {
   font-family: var(--default-font);
   color: var(--font-color);
-  list-style-type: disc;
-  padding: 5px 0;
+  list-style: none;
+  padding: 0;
   margin: 0;
-  font-size: 0.9rem;
-}
-
-.info-content ul {
-  width: 100%;
-  padding-left: 20px;
+  font-weight: lighter;
 }
 
 /* ------------------- Profile Modal ------------------- */
 
-.portfolio-container {
+.edit-profile-modal {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  background-color: var(--alt-tertiary-color);
-  width: 100%;
-  overflow: auto;
-  white-space: nowrap;
-  align-items: center;
-}
-
-.portfolio-container h3 {
-  font-family: var(--heading-font);
-  font-size: 2.2rem;
-  color: var(--font-color);
-  margin: 30px 0px 10px 0px;
-  width: 70%;
-}
-
-.portfolio-content {
-  display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px 0px;
-  width: 70%;
+  margin: auto;
+  margin-bottom: 40px;
 }
 
-.portfolio-content input {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
-  flex-wrap: wrap;
-  width: 40%;
-  gap: 20px;
-  background-color: var(--primary-color);
-  border-radius: 20px 0px;
-}
-
-/* ------------------- Prod Beats Content ------------------- */
-
-.prod-beats-content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  align-content: stretch;
-  /* width: 40%; */
-  /* gap: 20px; */
-  padding: 20px;
-  background-color: var(--primary-color);
-  border-radius: 20px 0px;
-}
-
-.prod-beats-content h3 {
+.edit-profile-modal h2 {
   font-family: var(--heading-font);
-  font-size: 1.5rem;
-  color: var(--font-color);
-  margin: 0px;
+  font-size: 2rem;
+  margin: 10px;
+  width: 250px;
+  margin-bottom: 50px;
+}
+
+.edit-profile-modal.active {
+  display: flex;
+}
+
+.edit-profile-menu {
+  display: flex;
   text-align: left;
-}
-
-.beat-add {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: auto;
-  background-color: var(--primary-color);
-  padding: 10px 20px;
-  border-radius: 15px 0px;
-}
-
-.beat-add img {
-  width: 50px;
-  height: 50px;
-}
-
-.beat-add h3 {
-  font-size: 1.2rem;
-  margin: 0px;
-  padding: 0px;
-  padding-left: 10px;
-}
-
-/* ------------------- Profile Modal ------------------- */
-
-.beat-modal-content {
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: var(--alt-tertiary-color);
-  padding: 20px;
-  border-radius: 20px 0px;
-  z-index: 1000;
-  width: 900px;
-  text-align: center;
-  position: relative;
-}
-
-.beat-modal-content h3 {
-  width: auto;
-  padding: 0px;
-  margin: 30px 0px 20px;
-}
-
-.beat-upload-container {
-  border: 2px dashed #ccc;
-  border-radius: 10px;
+  align-items: flex-start;
   padding: 30px;
-  margin: 20px 0;
+  background-color: var(--tertiary-color);
+  height: -webkit-fill-available;
+  border-radius: 30px 0px 0px 0px;
+}
+
+.edit-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  list-style-type: none;
+  width: 100%;
+  padding: 0px 10px;
+  margin: 0;
+}
+
+.edit-menu-list li {
+  padding: 15px;
+  font-family: var(--default-font);
+  color: var(--font-color);
   cursor: pointer;
-  transition: border-color 0.3s;
+  border-radius: 5px 0px;
+  margin-bottom: 5px;
+}
+
+.edit-menu-list li:hover {
+  background-color: var(--button-color);
+}
+
+/* ------------------- Edit Profile ------------------- */
+
+.edit-profile-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
   width: 80%;
-  height: 450px;
+  height: auto;
+  background-color: var(--background-color);
+  border-radius: 30px 0px;
+}
+
+.edit-profile-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  text-align: left;
+  width: 100%;
+  height: -webkit-fill-available;
+  padding: 30px;
+  border-radius: 0px 0px 30px;
+  background-color: var(--font-alt-color);
 }
 
-.prod-beats-content {
+.edit-profile-general {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.edit-profile-form h2 {
+  margin: 10px 10px 10px 0px;
+  padding: 0px 0px 20px 0px;
+}
+
+.profile-pic-upload {
+  padding: 20px;
+  border-radius: 20px 0px;
+}
+
+.profile-pic-upload label {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.profile-pic-upload p {
+  font-size: 1rem;
+  font-family: var(--paragraph-font);
+  font-weight: 600;
+  margin: 10px;
+  background-color: var(--button-color);
+  border-radius: 10px 0px;
+  padding: 15px;
+}
+
+.edit-input {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+  padding: 10px 0px;
+  width: 100%;
+}
+
+.edit-input label {
+  color: var(--font-color);
+  padding-bottom: 10px;
+  font-size: 1rem;
+  font-family: var(--default-font);
+}
+
+.edit-input input,
+.edit-input textarea,
+.edit-input select {
+  padding: 10px;
+  border: none;
+  background-color: var(--alt-tertiary-color);
+  color: var(--font-color);
+  border-radius: 10px 0px;
+  font-size: 0.8rem;
+  font-family: var(--default-font);
+  border-radius: 5px 0px;
+}
+.edit-profile-socials {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.edit-profile-pricing {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  flex-direction: column;
+}
+/* ------------------- Skillset Profile ------------------- */
+
+.skill-item,
+.add-skill {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--shadow-color);
+  border-radius: 15px 0px;
+  padding: 10px;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+.add-skill {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--shadow-color);
+  border-radius: 15px 0px;
+  padding: 10px;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+
+.skill-item input,
+.add-skill input {
+  background-color: var(--alt-tertiary-color);
+  border: none;
+  padding: 10px;
+  color: var(--font-color);
+  font-size: 0.8rem;
+  font-family: var(--default-font);
+  text-align: left;
+  width: 100%;
+}
+
+.add-skill input {
+  background-color: var(--alt-tertiary-color);
+  border: none;
+  padding: 10px;
+  color: var(--font-color);
+  font-size: 0.8rem;
+  font-family: var(--default-font);
+  text-align: left;
+  width: 100%;
+}
+
+.skill-actions button,
+.add-skill button {
+  padding: 10px;
+  border: none;
+  border-radius: 10px 0px;
+  background-color: var(--primary-color);
+  color: var(--font-color);
+  font-size: 0.8rem;
+}
+
+.edit-profile-skills {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  flex-direction: column;
+}
+
+.skill-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.skill-actions {
+  gap: 10px;
   display: flex;
   flex-direction: row;
+}
+
+/* ------------------- Password Info ------------------- */
+
+.edit-profile-password {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  flex-direction: column;
+}
+
+/* ------------------- Booking Info ------------------- */
+
+.edit-profile-booking {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  flex-direction: column;
+}
+
+.pricing-add-booking {
+  display: flex;
+  background-color: var(--alt-tertiary-color);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 20px 0px;
+  flex-direction: column;
   align-items: center;
-  align-content: stretch;
-  padding: 10px;
+}
+
+/* ------------------- Pricing Info ------------------- */
+
+.edit-lease-existing {
+  display: flex;
+  flex-direction: column;
+}
+
+.lease-listing {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 20px;
   background-color: var(--primary-color);
   border-radius: 20px 0px;
-  justify-content: space-between;
 }
 
-.beat-upload-container img {
-  width: 300px;
-  height: 300px;
+.lease-listing h3 {
+  padding-bottom: 10px;
 }
 
-.click-text {
-  color: #007bff;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.btn-controls {
+.pricing-add-lease {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+  background-color: var(--alt-tertiary-color);
   padding: 20px;
+  margin: 10px;
+  border-radius: 20px 0px;
+  flex-direction: column;
+  align-items: center;
 }
 
-.modal-buttons {
+.edit-pricing-title {
   display: flex;
   justify-content: space-between;
-  margin-top: 15px;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
 }
 
-.modal-close-btn,
-.modal-submit-btn {
+.edit-pricing-title h2 {
+  padding: 0px;
+  width: 100%;
+}
+
+.edit-pricing-content {
+  padding: 20px;
+  width: 90%;
+  background-color: var(--shadow-color);
+  border-radius: 12px 0px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.btn-add-lease {
   color: var(--font-color);
   background-color: var(--button-color);
-  font-size: large;
-  padding: 10px 30px;
-  margin: 20px;
-  margin-bottom: 30px;
-  width: 180px;
+  font-size: 1.1rem;
+  padding: 5px 20px;
   border: none;
-  border-radius: 5px 0px;
+  border-radius: 10px 0px;
   cursor: pointer;
   transition: 0.3s;
-  margin-top: 10px;
-}
-
-.modal-submit-btn {
-  background: var(--button-color);
-  color: var(--font-color);
-}
-
-.modal-close-btn {
-  background: var(--background-alt-color);
-  color: var(--font-alt-color);
+  margin-top: 20px;
 }
 
 /* ------------------- Footer ------------------- */

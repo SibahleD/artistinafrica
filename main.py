@@ -51,10 +51,6 @@ def get_db_connection():
 def index():
     return render_template('index.html')
 
-@app.route('/studio-view')
-def studio_view():
-    return render_template('studio-view.html')
-
 @app.route('/sign-in')
 def sign_in():
     return render_template('sign-in.html')
@@ -83,6 +79,29 @@ def artist_profile():
 def studio_profile():
     return render_template('studio-profile.html')
 
+@app.route('/synchat')
+def synchat():
+    return render_template('synchat.html')
+
+@app.route('/booking-artist')
+def booking_artist():
+    return render_template('booking-artist.html')
+
+@app.route('/booking-service')
+def booking_service():
+    return render_template('booking-service.html')
+
+@app.route('/booking-studio')
+def booking_studio():
+    return render_template('booking-studio.html')
+
+@app.route('/user-settings')
+def user_settings():
+    return render_template('user-settings.html')
+
+@app.route('/results')
+def results():
+    return render_template('results.html')
 
 # -------------- PAGES ---------------
 @app.route('/dashboard')
@@ -164,6 +183,58 @@ def register_artist():
     finally:
         conn.close()
 
+@app.route('/register/studio', methods=['POST'])
+def register_studio():
+    data = request.get_json()
+
+    username = data.get('username')
+    email = data.get('email')
+    password = data.get('password')
+    country = data.get('country', '')
+    city = data.get('city', '')
+    studio_name = data.get('studio_name', '')
+
+    if not all([username, email, password, studio_name]):
+        return jsonify({'error': 'Username, email, password, and studio name are required.'}), 400
+
+    hashed_password = generate_password_hash(password)
+
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+        
+        # Insert into users table
+        cursor.execute('''
+            INSERT INTO users (username, email, password, user_type, country, city)
+            VALUES (?, ?, ?, 'studio_owner', ?, ?)
+        ''', (username, email, hashed_password, country, city))
+        
+        conn.commit()
+        user_id = cursor.lastrowid
+
+        # Create studio profile
+        cursor.execute('''
+            INSERT INTO studio_profiles (user_id, studio_name, studio_location)
+            VALUES (?, ?, ?)
+        ''', (user_id, studio_name, f"{city}, {country}"))
+        
+        conn.commit()
+
+        return jsonify({
+            'message': 'Studio owner registered successfully', 
+            'user_id': user_id
+        }), 201
+
+    except sqlite3.IntegrityError:
+        return jsonify({'error': 'Username or email already exists.'}), 409
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+    finally:
+        conn.close()
+
+# --------------- LOGIN MANAGEMENT -------------
 
 @app.route('/login', methods=['POST'])
 def login_user():
@@ -202,6 +273,7 @@ def login_user():
 
     finally:
         conn.close()
+
 
 
 @app.route('/api/artist/<int:user_id>', methods=['GET'])
@@ -265,10 +337,231 @@ def get_artist_dashboard(user_id):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/api/studio/<int:user_id>', methods=['GET'])
+def get_studio_dashboard(user_id):
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+
+        # 1. Get basic studio info
+        cursor.execute('''
+            SELECT 
+                u.username, u.avatar_url, u.country, u.city,
+                s.studio_name, s.studio_location, s.studio_bio
+            FROM users u
+            JOIN studio_profiles s ON u.user_id = s.user_id
+            WHERE u.user_id = ?
+        ''', (user_id,))
+        studio = cursor.fetchone()
+
+        if not studio:
+            return jsonify({'error': 'Studio not found'}), 404
+
+        # 2. Get equipment list
+        cursor.execute('''
+            SELECT equipment_name FROM studio_equipment
+            WHERE user_id = ?
+            ORDER BY equipment_id
+        ''', (user_id,))
+        equipment = [row[0] for row in cursor.fetchall()]
+
+        # 3. Get pricing/services
+        cursor.execute('''
+            SELECT service_type, price FROM studio_pricing
+            WHERE user_id = ?
+            ORDER BY pricing_id
+        ''', (user_id,))
+        pricing = [{'service': row[0], 'price': row[1]} 
+                 for row in cursor.fetchall()]
+
+        # 4. Get social links (using artist_socials table as per schema)
+        cursor.execute('''
+            SELECT platform, username FROM artist_socials
+            WHERE user_id = ?
+        ''', (user_id,))
+        socials = [{'platform': row[0], 'username': row[1]} 
+                 for row in cursor.fetchall()]
+
+        # 5. Get gallery images
+        cursor.execute('''
+            SELECT file_name, caption FROM studio_gallery
+            WHERE user_id = ?
+            ORDER BY image_id
+        ''', (user_id,))
+        gallery = [{'url': f"/upload/{row[0]}", 'caption': row[1]} 
+                 for row in cursor.fetchall()]
+
+        # 6. Get upcoming bookings
+        cursor.execute('''
+            SELECT 
+                b.booking_id, 
+                b.booking_date, 
+                b.time_slot,
+                b.status,
+                b.service_type,
+                u.username as client_name
+            FROM studio_bookings b
+            JOIN users u ON b.user_id = u.user_id
+            WHERE b.studio_owner_id = ? 
+            AND b.booking_date >= date('now')
+            AND b.status != 'cancelled'
+            ORDER BY b.booking_date, b.time_slot
+        ''', (user_id,))
+        bookings = [{
+            'id': row[0],
+            'date': row[1],
+            'time_slot': row[2],
+            'status': row[3],
+            'service_type': row[4],
+            'client_name': row[5]
+        } for row in cursor.fetchall()]
+
+        return jsonify({
+            'studio_name': studio['studio_name'],
+            'owner_name': studio['username'],
+            'location': studio['studio_location'] or f"{studio['city']}, {studio['country']}",
+            'avatar_url': studio['avatar_url'],
+            'bio': studio['studio_bio'],
+            'equipment': equipment,
+            'pricing': pricing,
+            'socials': socials,
+            'gallery': gallery,
+            'bookings': bookings
+        }), 200
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+    finally:
+        conn.close()
+
+@app.route('/api/bookings/<int:booking_id>/confirm', methods=['POST'])
+def confirm_booking(booking_id):
+    if 'user_id' not in session:
+        return jsonify({'error': 'Unauthorized'}), 401
+
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+
+        # Verify the booking belongs to this studio
+        cursor.execute('''
+            SELECT studio_owner_id FROM studio_bookings
+            WHERE booking_id = ?
+        ''', (booking_id,))
+        booking = cursor.fetchone()
+
+        if not booking or booking[0] != session['user_id']:
+            return jsonify({'error': 'Booking not found or unauthorized'}), 404
+
+        # Update booking status
+        cursor.execute('''
+            UPDATE studio_bookings SET status = 'confirmed'
+            WHERE booking_id = ?
+        ''', (booking_id,))
+        conn.commit()
+
+        return jsonify({'message': 'Booking confirmed successfully'}), 200
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+    finally:
+        conn.close()
+
+@app.route('/api/bookings/<int:booking_id>/<action>', methods=['POST'])
+def manage_booking(booking_id, action):
+    if 'user_id' not in session:
+        return jsonify({'error': 'Unauthorized'}), 401
+
+    if action not in ['cancel', 'decline']:
+        return jsonify({'error': 'Invalid action'}), 400
+
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+
+        # Verify the booking belongs to this studio
+        cursor.execute('''
+            SELECT studio_owner_id FROM studio_bookings
+            WHERE booking_id = ?
+        ''', (booking_id,))
+        booking = cursor.fetchone()
+
+        if not booking or booking[0] != session['user_id']:
+            return jsonify({'error': 'Booking not found or unauthorized'}), 404
+
+        # Update booking status
+        new_status = 'cancelled'
+        cursor.execute(f'''
+            UPDATE studio_bookings SET status = ?
+            WHERE booking_id = ?
+        ''', (new_status, booking_id))
+        conn.commit()
+
+        return jsonify({'message': f'Booking {new_status} successfully'}), 200
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+    finally:
+        conn.close()
+
+@app.route('/upload-gallery', methods=['POST'])
+def upload_gallery_images():
+
+    if 'user_id' not in session:
+        return jsonify({'error': 'Unauthorized'}), 401
+
+    if 'gallery' not in request.files:
+        return jsonify({'error': 'No files uploaded'}), 400
+
+    files = request.files.getlist('gallery')
+    if not files:
+        return jsonify({'error': 'No files selected'}), 400
+
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+        uploaded_files = []
+
+        for file in files:
+            if file.filename == '':
+                continue
+
+            if not allowed_file(file.filename):
+                continue
+
+            filename = secure_filename(file.filename)
+            save_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(save_path)
+
+            # Get caption from form data
+            caption = request.form.get(f'caption_{filename}', '')
+
+            cursor.execute('''
+                INSERT INTO studio_gallery (user_id, file_name, caption)
+                VALUES (?, ?, ?)
+            ''', (session['user_id'], filename, caption))
+            
+            uploaded_files.append({
+                'filename': filename,
+                'caption': caption
+            })
+
+        conn.commit()
+        return jsonify({
+            'message': f'{len(uploaded_files)} files uploaded successfully',
+            'files': uploaded_files
+        }), 200
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+    finally:
+        conn.close()
 
 # ---------------- UPLOAD-MANAGEMENT ------------
-
-
 
 @app.route('/upload-beat', methods=['POST'])
 def upload_beat_file():
@@ -315,7 +608,6 @@ def upload_beat_file():
     finally:
         conn.close()
 
-
 @app.route('/upload/<path:filename>')
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=False)
@@ -331,7 +623,75 @@ def get_file_type(extension):
     else:
         return None
 
+# ---------------- Data-MANAGEMENT ------------
 
+@app.route('/api/studio/<int:user_id>/pricing', methods=['GET'])
+def get_studio_pricing(user_id):
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+        
+        cursor.execute('''
+            SELECT service_type, price FROM studio_pricing
+            WHERE user_id = ?
+            ORDER BY pricing_id
+        ''', (user_id,))
+        
+        pricing = [{'service_type': row[0], 'price': row[1]} 
+                  for row in cursor.fetchall()]
+        
+        return jsonify({'pricing': pricing}), 200
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    finally:
+        conn.close()
+
+@app.route('/api/studio/update', methods=['POST'])
+def update_studio_profile():
+    if 'user_id' not in session:
+        return jsonify({'error': 'Unauthorized'}), 401
+
+    data = request.get_json()
+    user_id = session['user_id']
+
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+
+        # Update basic studio info
+        cursor.execute('''
+            UPDATE studio_profiles
+            SET studio_name = ?, studio_location = ?, studio_bio = ?
+            WHERE user_id = ?
+        ''', (data.get('studio_name'), data.get('studio_location'), 
+              data.get('studio_bio'), user_id))
+
+        # Update equipment - first delete existing, then insert new
+        cursor.execute('DELETE FROM studio_equipment WHERE user_id = ?', (user_id,))
+        if 'equipment' in data and isinstance(data['equipment'], list):
+            for item in data['equipment']:
+                cursor.execute('''
+                    INSERT INTO studio_equipment (user_id, equipment_name)
+                    VALUES (?, ?)
+                ''', (user_id, item))
+
+        # Update pricing - first delete existing, then insert new
+        cursor.execute('DELETE FROM studio_pricing WHERE user_id = ?', (user_id,))
+        if 'pricing' in data and isinstance(data['pricing'], list):
+            for price in data['pricing']:
+                cursor.execute('''
+                    INSERT INTO studio_pricing (user_id, service_type, price)
+                    VALUES (?, ?, ?)
+                ''', (user_id, price['service_type'], price['price']))
+
+        conn.commit()
+        return jsonify({'message': 'Profile updated successfully'}), 200
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    finally:
+        conn.close()
 
 # ---------------- GOOGLE OAUTH ----------------
 
@@ -381,4 +741,4 @@ def get_users():
 # ---------------------------------------------
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=10000)
+    app.run(host='0.0.0.0', port=10000, debug=True)

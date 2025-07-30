@@ -6,36 +6,93 @@ document.addEventListener("DOMContentLoaded", function () {
         dashboardBtn.addEventListener("click", function () {
             const userType = sessionStorage.getItem("user_type");
 
-            if (!userType) {
-                showLoginModal(); // Show modal if not logged in\
-                window.location.href = "/sign-in";
-                return;
-            }
-
-            switch (userType.toLowerCase()) {
+            switch (userType) {
                 case "artist":
                     window.location.href = "/dashboard-artist";
                     break;
-                case "studio owner":
+                case "studio_owner":
                     window.location.href = "/dashboard-studio";
                     break;
-                case "service provider":
+                case "service_provider":
                     window.location.href = "/dashboard-service";
                     break;
                 default:
+                    console.log(userType);
                     alert("Unknown user type.");
                     break;
             }
         });
     }
+    // Settings Redirect
+    const settingsBtn = document.getElementById("btn-settings");
+    if (settingsBtn) {
+        settingsBtn.addEventListener("click", function () {
+            window.location.href = "/user-settings";
+        });
+    }
 
-    // Profile modal toggle
+    // Bookings Redirect
+    const bookingsBtn = document.getElementById("btn-bookings");
+    if (bookingsBtn) {
+        bookingsBtn.addEventListener("click", function () {
+            const userType = sessionStorage.getItem("user_type");
+
+            if (!userType) {
+                
+                return;
+            }
+
+            switch (userType.toLowerCase()) {
+                case "artist":
+                    window.location.href = "/booking-artist";
+                    break;
+                case "studio_owner":
+                    window.location.href = "/booking-manager";
+                    break;
+                case "service_provider":
+                    window.location.href = "/booking-manager";
+                    break;
+                default:
+                    alert("Unknown user type.");
+            }
+        });
+    }
+
+    // SynChat Redirect
+    const chatBtn = document.getElementById("btn-chat");
+    if (chatBtn) {
+        chatBtn.addEventListener("click", function () {
+            window.location.href = "/synchat";
+        });
+    }
+
+    // Delete Account Redirect
+    const deleteBtn = document.querySelector(".btn-delete");
+    if (deleteBtn) {
+        deleteBtn.addEventListener("click", function () {
+            window.location.href = "/delete-account";
+        });
+    }
+
+    // Logout Functionality
+    const logoutBtn = document.getElementById("btn-signout");
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", function () {
+            // Clear sessionStorage
+            sessionStorage.clear();
+            // Optional: Add a call to your Flask logout route if needed
+            // Redirect to login
+            window.location.href = "/sign-in";
+        });
+    }
+
+    // === Profile modal toggle ===
     const userIcon = document.querySelector(".header-user");
     const profileModal = document.querySelector(".profile-modal");
 
     if (userIcon && profileModal) {
         userIcon.addEventListener("click", (e) => {
-            e.preventDefault(); // Prevent default behavior
+            e.preventDefault();
             profileModal.classList.toggle("show");
         });
 
@@ -46,28 +103,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-
-// ✅ Show login modal
-function showLoginModal() {
-    if (!document.getElementById("login-modal")) {
-        const modal = document.createElement("div");
-        modal.id = "login-modal";
-        modal.innerHTML = `
-            <div class="modal-overlay"></div>
-            <div class="modal-content">
-                <h3>Please log in</h3>
-                <p>You must be logged in to access your dashboard.</p>
-                <button class="modal-close-btn" onclick="closeLoginModal()">Close</button>
-                <a href="/sign-in"><button class="modal-login-btn">Log In</button></a>
-            </div>
-        `;
-        document.body.appendChild(modal);
-    }
-}
-
-function closeLoginModal() {
-    const modal = document.getElementById("login-modal");
-    if (modal) {
-        modal.remove();
-    }
-}
