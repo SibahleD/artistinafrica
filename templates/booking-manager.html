@@ -8,7 +8,7 @@
 
     <link rel="icon" type="image/png" sizes="32x32" href="../static/images/as-favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../static/images/as-favicon-16x16.png">
-    <link href="../static/styles/booking-studio.css" rel="stylesheet">
+    <link href="../static/styles/booking-manager.css" rel="stylesheet">
 </head>
 
 <body>
@@ -55,45 +55,29 @@
         </ul>
     </div>
 
-    
+
+    <!-- Update the booking-management section in booking-manager.html -->
     <section class="booking-management">
-        <h3>Upcoming Bookings</h3>
+        <div class="booking-header">
+            <h2>Manage Bookings</h2>
+            <div class="booking-filters">
+                <select id="booking-filter">
+                    <option value="all">All Bookings</option>
+                    <option value="pending">Pending</option>
+                    <option value="confirmed">Confirmed</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+            </div>
+        </div>
+
         <div class="bookings-container">
-            <div class="booking-card">
-                <div class="booking-header">
-                    <h4>John Doe - Recording Session</h4>
-                    <span class="booking-status confirmed">Confirmed</span>
-                </div>
-                <div class="booking-details">
-                    <p><strong>Date:</strong> <span class="booking-date">2025-08-15</span></p>
-                    <p><strong>Time:</strong> <span class="booking-time">14:00 - 16:00</span></p>
-                    <p><strong>Service:</strong> <span class="booking-service">Hourly Recording</span></p>
-                </div>
-                <div class="booking-actions">
-                    <button class="btn-action edit">Reschedule</button>
-                    <button class="btn-action cancel">Cancel</button>
-                </div>
-            </div>
-            <div class="booking-card">
-                <div class="booking-header">
-                    <h4>Jane Smith - Mixing</h4>
-                    <span class="booking-status pending">Pending</span>
-                </div>
-                <div class="booking-details">
-                    <p><strong>Date:</strong> <span class="booking-date">2025-08-17</span></p>
-                    <p><strong>Time:</strong> <span class="booking-time">10:00 - 12:00</span></p>
-                    <p><strong>Service:</strong> <span class="booking-service">Mixing & Mastering</span></p>
-                </div>
-                <div class="booking-actions">
-                    <button class="btn-action confirm">Confirm</button>
-                    <button class="btn-action cancel">Decline</button>
-                </div>
-            </div>
+            <!-- Bookings will be loaded here by JavaScript -->
+            <div class="loading-message">Loading bookings...</div>
         </div>
     </section>
 
 
-    
+
     <footer>
         <section class="footer-container">
             <div class="footer-info-container">
@@ -115,7 +99,7 @@
         </div>
     </footer>
 </body>
-<script src="../static/scripts/booking-studio.js"></script>
+<!-- <script src="../static/scripts/booking-manager.js"></script> -->
 <script src="../static/scripts/uni-header.js"></script>
 
 </html>

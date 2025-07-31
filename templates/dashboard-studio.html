@@ -80,28 +80,11 @@
                     <img class="location-icon" src="../static/images/icon-location.png" alt="Location Icon">
                     <h2 class="hero-location" id="studio-location">City, Country</h2>
                 </div>
-                <div class="hero-social-container">
-                    <div class="hero-social-links">
-                        <a href="#" id="studio-facebook">
-                            <img src="../static/images/icon-facebook.png" alt="Facebook Icon" class="hero-social-icon">
-                            Facebook
-                        </a>
-                        <a href="#" id="studio-twitter">
-                            <img src="../static/images/icon-twitter.png" alt="Twitter Icon" class="hero-social-icon">
-                            Twitter
-                        </a>
-                        <a href="#" id="studio-instagram">
-                            <img src="../static/images/icon-instagram.png" alt="Instagram Icon"
-                                class="hero-social-icon">
-                            Instagram
-                        </a>
-                    </div>
-                </div>
             </div>
             <div class="hero-supporting-container">
                 <div class="hero-about">
                     <h3>About the Studio</h3>
-                    <p class="studio-bio">A premier recording studio offering top-notch services.</p>
+                    <p class="studio-bio" id="studio-bio">A premier recording studio offering top-notch services.</p>
                 </div>
                 <div class="info-container">
                     <div class="info-content">
@@ -144,8 +127,7 @@
 
 
 
-    <section class="edit-profile-modal">
-        <!-- Similar to artist dashboard edit modal but with studio-specific fields -->
+    <section class="edit-profile-modal" id="edit-profile-modal">
         <div class="edit-profile-overlay"></div>
         <div class="edit-profile-container">
             <div class="edit-profile-menu">
@@ -158,8 +140,8 @@
                 </ul>
             </div>
 
-            <form class="edit-profile-form" enctype="multipart/form-data">
-                <div class="edit-section" data-name="general">
+            <section class="edit-profile-form" enctype="multipart/form-data">
+                <form class="edit-section" data-name="general">
                     <h2>Studio Information</h2>
                     <div class="edit-input">
                         <label for="studio-name">Studio Name*</label>
@@ -167,8 +149,8 @@
                     </div>
 
                     <div class="edit-input">
-                        <label for="studio-bio">Studio Description</label>
-                        <textarea id="studio-bio" name="studio_bio" rows="4"></textarea>
+                        <label for="studio-desc">Studio Description</label>
+                        <textarea id="studio-desc" name="studio_desc" rows="4"></textarea>
                     </div>
 
                     <div class="edit-input">
@@ -180,9 +162,9 @@
                         <button class="btn-edit" type="submit">Save</button>
                         <button class="btn-edit" type="button">Cancel</button>
                     </div>
-                </div>
+                </form>
 
-                <div class="edit-section" data-name="equipment">
+                <form class="edit-section" data-name="equipment">
                     <h2>Studio Equipment</h2>
                     <div class="equipment-list" id="studioEquipmentList">
                         <!-- Equipment items will be added here dynamically -->
@@ -195,9 +177,9 @@
                         <button class="btn-edit" type="submit">Save</button>
                         <button class="btn-edit" type="button">Cancel</button>
                     </div>
-                </div>
+                </form>
 
-                <div class="edit-section" data-name="pricing">
+                <form class="edit-section" data-name="pricing">
                     <h2>Pricing & Services</h2>
                     <div class="pricing-list" id="pricing-list-edit">
                         <!-- Existing prices will be loaded here -->
@@ -222,10 +204,10 @@
                         <button class="btn-edit" type="submit">Save</button>
                         <button class="btn-edit" type="button" id="btn-cancel-pricing">Cancel</button>
                     </div>
-                </div>
+                </form>
 
 
-                <div class="edit-section" data-name="gallery">
+                <form class="edit-section" data-name="gallery">
                     <h2>Studio Gallery</h2>
                     <div class="gallery-upload">
                         <input type="file" id="gallery-upload" accept="image/*" multiple>
@@ -237,9 +219,9 @@
                         <button class="btn-edit" type="submit">Save</button>
                         <button class="btn-edit" type="button">Cancel</button>
                     </div>
-                </div>
+                </form>
 
-            </form>
+            </section>
         </div>
     </section>
 

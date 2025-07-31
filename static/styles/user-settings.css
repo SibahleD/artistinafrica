@@ -715,6 +715,20 @@ header {
   width: 100%;
   flex-direction: column;
 }
+
+/* ------------------- For Tab Reading ------------------- */
+
+.edit-profile-form > form {
+  display: none;
+}
+.edit-profile-form > form.active {
+  display: block;
+}
+.edit-menu-list li.active {
+  font-weight: bold;
+  background-color: var(--font-alt-color);
+}
+
 /* ------------------- Skillset Profile ------------------- */
 
 .skill-item,
@@ -861,6 +875,8 @@ header {
 .edit-pricing-title h2 {
   padding: 0px;
   width: 100%;
+  font-size: 1.3rem;
+  font-family: var(--paragraph-font);
 }
 
 .edit-pricing-content {

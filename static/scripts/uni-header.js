@@ -18,7 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     break;
                 default:
                     console.log(userType);
-                    alert("Unknown user type.");
+                    sessionStorage.clear();
+                    alert("User is logged out. Redirecting to login page");
+                    window.location.href = "/sign-in";
                     break;
             }
         });

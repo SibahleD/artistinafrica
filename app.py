@@ -34,7 +34,7 @@ def create_tables():
         CREATE TABLE IF NOT EXISTS artist_pricing (
             pricing_id INTEGER PRIMARY KEY AUTOINCREMENT,
             user_id INTEGER NOT NULL,
-            tier TEXT CHECK(tier IN ('Beat Lease', 'Unlimited Use', 'Exclusive Lease')),
+            tier TEXT,
             price REAL NOT NULL,
             FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE
         )
@@ -94,7 +94,7 @@ def create_tables():
         CREATE TABLE IF NOT EXISTS studio_pricing (
             pricing_id INTEGER PRIMARY KEY AUTOINCREMENT,
             user_id INTEGER NOT NULL,
-            service_type TEXT CHECK(service_type IN ('Hourly Recording', 'Full Day Rental', 'Mixing and Mastering')),
+            service_type TEXT,
             price REAL NOT NULL,
             FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE
         )

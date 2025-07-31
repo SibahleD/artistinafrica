@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio Profile | ArtistSync</title>
+    <title>Service Profile | ArtistSync</title>
     <link rel="icon" type="image/png" sizes="32x32" href="../static/images/as-favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../static/images/as-favicon-16x16.png">
     <link href="../static/styles/profile-studio.css" rel="stylesheet">
@@ -80,7 +80,7 @@
             </div>
             <div class="hero-supporting-container">
                 <h3 class="hero-supporting-title">About the Studio</h3>
-                <p class="hero-supporting" id="hero-supporting">
+                <p class="hero-supporting">
                     A premier recording studio located in Kimironko, Kigali, offering top-notch sound engineering and
                     production services. AirHead offers high-quality recording and mixing services with
                     professional engineers and modern equipment. Ideal for solo artists, bands, and voiceover projects.
@@ -88,11 +88,10 @@
             </div>
         </div>
     </section>
-
     <section class="amenities-section">
         <div class="studio-equipment">
             <h2>Equipment & Features</h2>
-            <ul class="equipment-list" id="equipment-list">
+            <ul class="equipment-list">
                 <li> - Soundproof recording booth</li>
                 <li> - Yamaha HS8 Monitors</li>
                 <li> - Focusrite Scarlett Audio Interface</li>
@@ -102,14 +101,13 @@
         </div>
         <div class="studio-equipment">
             <h2>Pricing</h2>
-            <ul class="pricing-list" id="pricing-list">
+            <ul class="equipment-list">
                 <li>Hourly Recording - RWF 10 000</li>
                 <li>Mixing and Mastering - RWF 30 000 / track</li>
                 <li>Full Day Studio Rental - RWF 50 000</li>
             </ul>
         </div>
     </section>
-
     <section class="studio-gallery">
         <h2>Studio Gallery</h2>
 
@@ -141,49 +139,40 @@
         </div>
     </section>
 
-    <!-- Add this to profile-studio.html -->
-    <section class="modal-booking-container" id="booking-modal">
+    <section class="modal-booking-container" id="modal-container">
         <div class="modal-booking-content">
-            <h2>Book Studio Session</h2>
-            <h3 id="modal-studio-name">Studio Name</h3>
-            <form id="booking-form">
-                <input type="hidden" id="studio-id" name="studio_id">
+            <h2>Booking for:</h2>
+            <h3>AirHead Recording Center</h3>
+            <div class="booking-form">
 
-                <div class="form-group">
-                    <label for="service-type">Service Type</label>
-                    <select id="service-type" name="service_type" required>
-                        <option value="">Select a service</option>
-                        <!-- Options will be populated by JavaScript -->
-                    </select>
-                </div>
+                <label for="duration">Services</label>
+                <select class="">
+                    <option>Hourly Recording</option>
+                    <option>Mixing & Mastering</option>
+                    <option>Full Day Rental</option>
+                </select>
+                <div class="form-grid">
+                    <div class="form-grid-item">
+                        <label for="date">Booking Date:</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+                    <div class="form-grid-item">
+                        <label for="time">Booking Time:</label>
+                        <input type="time" id="time" name="time">
+                    </div>
 
-                <div class="form-group">
-                    <label for="booking-date">Date</label>
-                    <input type="date" id="booking-date" name="booking_date" required>
                 </div>
-
-                <div class="form-group">
-                    <label for="time-slot">Time Slot</label>
-                    <select id="time-slot" name="time_slot" required>
-                        <option value="">Select a time slot</option>
-                        <!-- Options will be populated by JavaScript -->
-                    </select>
+                <div class="form-comment">
+                    <label for="date">Comment (Optional)</label>
+                    <input type="text" name="comment">
                 </div>
-
-                <div class="form-group">
-                    <label for="notes">Additional Notes</label>
-                    <textarea id="notes" name="notes" rows="3"></textarea>
+                <div class="form-button-container">
+                    <button class="btn-stand" type="submit">Book</button>
+                    <button class="btn-stand" id="btn-close-modal">Close</button>
                 </div>
-
-                <div class="form-actions">
-                    <button type="submit" class="btn-stand">Confirm Booking</button>
-                    <button type="button" class="btn-stand-alt" id="cancel-booking">Cancel</button>
-                </div>
-            </form>
+            </div>
         </div>
     </section>
-
-
     <footer>
         <section class="footer-container">
             <div class="footer-info-container">
