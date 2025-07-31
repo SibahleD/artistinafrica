@@ -667,6 +667,12 @@ header {
   margin: 0 auto;
 }
 
+.gallery-content li {
+  display: flex;
+  color: var(--font-color);
+  font-family: var(--default-font);
+}
+
 .gallery-item {
   display: flex;
   flex-direction: column;

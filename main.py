@@ -1682,6 +1682,159 @@ def delete_portfolio_item():
         conn.close()
 
 
+# ========== CHAT ENDPOINTS ==========
+
+@app.route('/api/chat/conversations', methods=['GET'])
+def get_conversations():
+    if 'user_id' not in session:
+        return jsonify({'error': 'Unauthorized'}), 401
+    
+    user_id = session['user_id']
+    
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+        
+        # Get all unique conversations for this user
+        cursor.execute('''
+            SELECT 
+                u.user_id as other_user_id,
+                u.username as other_username,
+                u.avatar_url as other_avatar,
+                MAX(m.timestamp) as last_message_time
+            FROM messages m
+            JOIN users u ON 
+                (m.sender_id = u.user_id AND m.sender_id != ?) OR 
+                (m.receiver_id = u.user_id AND m.receiver_id != ?)
+            WHERE m.sender_id = ? OR m.receiver_id = ?
+            GROUP BY u.user_id
+            ORDER BY last_message_time DESC
+        ''', (user_id, user_id, user_id, user_id))
+        
+        conversations = []
+        for row in cursor.fetchall():
+            conversation = dict(row)
+            
+            # Get last message content
+            cursor.execute('''
+                SELECT message_body, timestamp, is_read
+                FROM messages
+                WHERE (sender_id = ? AND receiver_id = ?) OR 
+                      (sender_id = ? AND receiver_id = ?)
+                ORDER BY timestamp DESC
+                LIMIT 1
+            ''', (user_id, conversation['other_user_id'], 
+                  conversation['other_user_id'], user_id))
+            
+            last_message = cursor.fetchone()
+            if last_message:
+                conversation.update({
+                    'last_message': last_message['message_body'],
+                    'timestamp': last_message['timestamp'],
+                    'is_read': last_message['is_read']
+                })
+            
+            conversations.append(conversation)
+        
+        return jsonify(conversations), 200
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    finally:
+        conn.close()
+
+@app.route('/api/chat/messages/<int:other_user_id>', methods=['GET'])
+def get_messages(other_user_id):
+    if 'user_id' not in session:
+        return jsonify({'error': 'Unauthorized'}), 401
+    
+    user_id = session['user_id']
+    
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+        
+        # Get messages between these two users
+        cursor.execute('''
+            SELECT 
+                m.message_id,
+                m.sender_id,
+                m.receiver_id,
+                m.message_body,
+                m.timestamp,
+                m.is_read,
+                u.username as sender_name,
+                u.avatar_url as sender_avatar
+            FROM messages m
+            JOIN users u ON m.sender_id = u.user_id
+            WHERE (m.sender_id = ? AND m.receiver_id = ?) OR 
+                  (m.sender_id = ? AND m.receiver_id = ?)
+            ORDER BY m.timestamp ASC
+        ''', (user_id, other_user_id, other_user_id, user_id))
+        
+        messages = [dict(row) for row in cursor.fetchall()]
+        
+        # Mark messages as read
+        cursor.execute('''
+            UPDATE messages
+            SET is_read = 1
+            WHERE sender_id = ? AND receiver_id = ? AND is_read = 0
+        ''', (other_user_id, user_id))
+        conn.commit()
+        
+        # Get other user's info
+        cursor.execute('''
+            SELECT username, avatar_url
+            FROM users
+            WHERE user_id = ?
+        ''', (other_user_id,))
+        other_user = cursor.fetchone()
+        
+        return jsonify({
+            'messages': messages,
+            'other_user': dict(other_user) if other_user else None
+        }), 200
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    finally:
+        conn.close()
+
+@app.route('/api/chat/send', methods=['POST'])
+def send_message():
+    if 'user_id' not in session:
+        return jsonify({'error': 'Unauthorized'}), 401
+    
+    data = request.get_json()
+    receiver_id = data.get('receiver_id')
+    message_body = data.get('message_body')
+    
+    if not receiver_id or not message_body:
+        return jsonify({'error': 'Missing required fields'}), 400
+    
+    try:
+        conn = get_db()
+        cursor = conn.cursor()
+        
+        # Insert new message
+        cursor.execute('''
+            INSERT INTO messages (sender_id, receiver_id, message_body)
+            VALUES (?, ?, ?)
+        ''', (session['user_id'], receiver_id, message_body))
+        conn.commit()
+        
+        return jsonify({
+            'message': 'Message sent successfully',
+            'message_id': cursor.lastrowid
+        }), 201
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    finally:
+        conn.close()
+
+
+
 # ---------------- GOOGLE OAUTH ----------------
 
 @app.route('/login/google')

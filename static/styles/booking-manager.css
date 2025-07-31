@@ -233,6 +233,24 @@ a {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
+  flex-direction: column;
+}
+
+.booking-header h2 {
+  font-family: var(--heading-font);
+  font-size: 2rem;
+  color: var(--font-color);
+  margin-bottom: 30px;
+}
+
+#booking-filter {
+  display: flex;
+  color: var(--font-color);
+  background-color: var(--button-color);
+  padding: 10px 20px;
+  border: none;
+  font-size: 1rem;
+  border-radius: 10px 0px;
 }
 
 .booking-header h4 {
@@ -249,7 +267,7 @@ a {
   font-family: var(--default-font);
   font-size: 0.8rem;
   font-weight: bold;
-  color: var(--font-color)
+  color: var(--font-color);
 }
 
 .booking-status.confirmed {

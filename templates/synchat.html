@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../static/images/as-favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../static/images/as-favicon-16x16.png">
     <link href="../static/styles/synchat.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
@@ -55,10 +56,44 @@
         </ul>
     </div>
 
+    <section class="chat-container">
+        <div class="conversations-list">
+            <div class="chat-header">
+                <h2>Messages</h2>
+                <div class="search-box">
+                    <input type="text" placeholder="Search conversations...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            <div class="conversations">
+                <!-- Conversations will be loaded here -->
+            </div>
+        </div>
+        
+        <div class="chat-messages">
+            <div class="messages-header">
+                <div class="active-chat-info">
+                    <img id="active-chat-avatar" src="../static/images/default-avatar.png" alt="User Avatar">
+                    <h3 id="active-chat-name">Select a conversation</h3>
+                </div>
+            </div>
+            
+            <div class="messages-container">
+                <div class="messages" id="messages">
+                    <!-- Messages will be loaded here -->
+                    <div class="no-chat-selected">
+                        <p>Select a conversation to start chatting</p>
+                    </div>
+                </div>
+                
+                <div class="message-input">
+                    <input type="text" id="message-input" placeholder="Type your message here..." disabled>
+                    <button id="send-button" disabled><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-
-
-    
     <footer>
         <section class="footer-container">
             <div class="footer-info-container">
@@ -73,14 +108,13 @@
                 <li><a href="studio-listing.html">Studios</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
-
         </section>
         <div class="footer-bottom">
             <p>&copy; Copywright © ArtistSync | Powered by DOGE Coin</p>
         </div>
     </footer>
-</body>
-<script src="../static/scripts/index.js"></script>
-<script src="../static/scripts/uni-header.js"></script>
 
+    <script src="../static/scripts/synchat.js"></script>
+    <script src="../static/scripts/uni-header.js"></script>
+</body>
 </html>
